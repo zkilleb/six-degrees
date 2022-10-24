@@ -2,32 +2,16 @@ import React from 'react';
 import { Paper } from '@mui/material';
 import { GameForm } from '../components';
 import { colors } from '../constants';
-import { getActorByName, getActorById, getActorImages } from '../api';
+import { getActorByName } from '../api';
 
 export function Home() {
-  // React.useEffect(() => {
-  //   async function fetchData() {
-  //     const result = await getActorByName('Christian Bale');
-  //     console.log('name', result);
-  //   }
-  //   fetchData();
-  // }, []);
-
-  // React.useEffect(() => {
-  //   async function fetchData() {
-  //     const result = await getActorById(5064);
-  //     console.log('id', result);
-  //   }
-  //   fetchData();
-  // }, []);
-
-  // React.useEffect(() => {
-  //   async function fetchData() {
-  //     const result = await getActorImages(5064);
-  //     console.log('images', result);
-  //   }
-  //   fetchData();
-  // }, []);
+  React.useEffect(() => {
+    async function fetchData() {
+      const result = await getActorByName('John Travolta');
+      console.log('name', result);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div>

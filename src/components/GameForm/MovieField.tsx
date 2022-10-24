@@ -12,8 +12,10 @@ import { AutoComplete } from '../../classes';
 
 export function MovieField({
   callback,
+  guesses,
 }: {
   callback: (value: AutoComplete) => void;
+  guesses?: AutoComplete[];
 }) {
   const [query, setQuery] = React.useState<any[]>();
   const [result, setResult] = React.useState<AutoComplete>();
@@ -51,7 +53,12 @@ export function MovieField({
           />
         )}
       />
-      <Button onClick={handleAdd} sx={buttonStyle} variant="contained">
+      <Button
+        disabled={guesses && guesses.length >= 6}
+        onClick={handleAdd}
+        sx={buttonStyle}
+        variant="contained"
+      >
         Add
       </Button>
     </div>
@@ -83,6 +90,7 @@ function transformValue(arr: []) {
           : ''
       }`,
       id: element.id,
+      posterPath: element.poster_path,
     };
   });
 }

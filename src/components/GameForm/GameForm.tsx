@@ -4,6 +4,7 @@ import { actors } from '../../constants';
 import { ActorCard } from './ActorCard';
 import { Guesses } from './Guesses';
 import { MovieField } from './MovieField';
+import { Submit } from './Submit';
 
 export function GameForm() {
   const [firstActor, setFirstActor] = React.useState<TMDBActor>();
@@ -26,8 +27,9 @@ export function GameForm() {
         <ActorCard to={false} name={firstActor?.name} id={firstActor?.id} />
         <ActorCard to={true} name={secondActor?.name} id={secondActor?.id} />
       </div>
-      <MovieField callback={handleCallback} />
-      <Guesses guesses={guesses}/>
+      <MovieField callback={handleCallback} guesses={guesses} />
+      <Guesses guesses={guesses} deleteCallback={deleteCallback} />
+      <Submit />
     </div>
   );
 
@@ -35,6 +37,14 @@ export function GameForm() {
     let tempResult = guesses ? [...guesses] : [];
     tempResult.push(value);
     setGuesses(tempResult);
+  }
+
+  function deleteCallback() {
+    if (guesses) {
+      let tempArr = [...guesses];
+      tempArr.pop();
+      setGuesses(tempArr);
+    }
   }
 }
 
