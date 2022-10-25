@@ -11,5 +11,5 @@ export function Submit() {
 }
 
 const buttonStyle = {
-  marginTop: 10,
+  marginTop: '5%',
 };

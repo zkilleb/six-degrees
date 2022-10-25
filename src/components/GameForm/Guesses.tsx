@@ -54,12 +54,6 @@ export function Guesses({
     } else return false;
   }
 
-  //   function deleteCallback(index: number) {
-  //     let tempArr = [...guestArr];
-  //     tempArr[index] = { id: undefined, label: undefined, posterPath: undefined };
-  //     setGuestArr(tempArr);
-  //   }
-
   return (
     <div style={wrapperStyle}>
       {guestArr &&

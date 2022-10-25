@@ -16,20 +16,24 @@ export function GuessCard({
   return (
     <div style={cardStyle}>
       {name ? (
-        <Tooltip title={name}>
-          <div style={wrapperStyle}>
-            {posterPath ? (
+        <div style={wrapperStyle}>
+          {posterPath ? (
+            <Tooltip title={name}>
               <img
                 style={imageStyle}
                 alt={name}
                 src={`https://image.tmdb.org/t/p/w342/${posterPath}`}
               />
-            ) : (
-              <div style={altStyle}>{name}</div>
-            )}
-            {isLast && <RemoveCircle onClick={handleDelete} sx={iconStyle} />}
-          </div>
-        </Tooltip>
+            </Tooltip>
+          ) : (
+            <div style={altStyle}>{name}</div>
+          )}
+          {isLast && (
+            <Tooltip placement="top" title="Delete Movie">
+              <RemoveCircle onClick={handleDelete} sx={iconStyle} />
+            </Tooltip>
+          )}
+        </div>
       ) : (
         '?'
       )}

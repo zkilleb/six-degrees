@@ -32,12 +32,12 @@ export function ActorCard({
 }
 
 const actorStyle: CSSProperties = {
-  margin: '2% 10% 5% 10%',
+  margin: '2% 5% 5% 5%',
 };
 
 const imageStyle = {
-  width: 171,
-  height: 256,
+  width: '10.7em',
+  height: '16em',
   borderRadius: 10,
   border: 'solid white',
 };

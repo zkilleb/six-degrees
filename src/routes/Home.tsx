@@ -7,7 +7,7 @@ import { getActorByName } from '../api';
 export function Home() {
   React.useEffect(() => {
     async function fetchData() {
-      const result = await getActorByName('John Travolta');
+      const result = await getActorByName('Cameron Diaz');
       console.log('name', result);
     }
     fetchData();
@@ -26,10 +26,10 @@ export function Home() {
 const paperStyle = {
   backgroundColor: colors.tableBackground,
   width: '90%',
-  height: 1000,
+  height: '63em',
   margin: 'auto',
   marginTop: 5,
-  borderRadius: '10px 10px 10px 10px',
+  borderRadius: 10,
   color: 'white',
 };
 
