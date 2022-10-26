@@ -1,18 +1,8 @@
-import React from 'react';
 import { Paper } from '@mui/material';
 import { GameForm } from '../components';
 import { colors } from '../constants';
-import { getActorByName } from '../api';
 
 export function Home() {
-  React.useEffect(() => {
-    async function fetchData() {
-      const result = await getActorByName('Cameron Diaz');
-      console.log('name', result);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div>
       <span style={headerStyle}>Six Degrees of Kevin Bacon</span>
