@@ -142,5 +142,5 @@ export const actors = [
   { name: 'Willem Dafoe', id: 5293 },
   { name: 'Winona Ryder', id: 1920 },
   { name: 'Woody Harrelson', id: 57755 },
-  { name: 'Zoe Saldana', id: 8691 },
+  { name: 'Zoe Saldaña', id: 8691 },
 ];
