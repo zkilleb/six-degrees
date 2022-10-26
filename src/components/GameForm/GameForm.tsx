@@ -29,7 +29,11 @@ export function GameForm() {
       </div>
       <MovieField callback={handleCallback} guesses={guesses} />
       <Guesses guesses={guesses} deleteCallback={deleteCallback} />
-      <Submit />
+      <Submit
+        guesses={guesses}
+        firstActor={firstActor}
+        secondActor={secondActor}
+      />
     </div>
   );
 
