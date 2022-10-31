@@ -73,8 +73,9 @@ export function Guesses({
 }
 
 const wrapperStyle: CSSProperties = {
-  height: '10em',
+  height: '100%',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
+  flexWrap: 'wrap',
 };

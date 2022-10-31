@@ -47,7 +47,7 @@ export function GuessCard({
 
 const cardStyle: CSSProperties = {
   width: '1.95em',
-  height: '100%',
+  height: '3.3em',
   border: 'solid white',
   margin: '3% 1% 0% 1%',
   textAlign: 'center',
@@ -60,7 +60,7 @@ const cardStyle: CSSProperties = {
 
 const imageStyle = {
   width: '1.95em',
-  height: '3.2em',
+  height: '3.28em',
   borderRadius: 6,
   display: 'block',
 };

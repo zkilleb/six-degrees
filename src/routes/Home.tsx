@@ -15,7 +15,7 @@ export function Home() {
 
 const paperStyle = {
   backgroundColor: colors.tableBackground,
-  width: '90%',
+  width: '95%',
   height: '63em',
   margin: 'auto',
   marginTop: 5,

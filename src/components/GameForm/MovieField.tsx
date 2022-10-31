@@ -120,5 +120,5 @@ const CssTextField = styled(TextField)({
       color: 'white',
     },
   },
-  width: '50%',
+  width: '75%',
 });
