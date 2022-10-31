@@ -41,16 +41,10 @@ export function Submit({
         </DialogContent>
 
         <DialogActions>
-        <Button
-            variant="contained"
-            onClick={handleModalClose}
-          >
+          <Button variant="contained" onClick={handleModalClose}>
             Close
           </Button>
-          <Button
-            variant="contained"
-            onClick={() => handleReload()}
-          >
+          <Button variant="contained" onClick={() => handleReload()}>
             Play Again
           </Button>
         </DialogActions>
