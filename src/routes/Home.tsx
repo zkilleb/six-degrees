@@ -5,7 +5,7 @@ import { colors } from '../constants';
 export function Home() {
   return (
     <div>
-      <span style={headerStyle}>Six Degrees of Kevin Bacon</span>
+      <img style={headerStyle} src="banner-logo.png" alt="Logo" />
       <Paper elevation={1} sx={paperStyle}>
         <GameForm />
       </Paper>
@@ -18,12 +18,12 @@ const paperStyle = {
   width: '95%',
   height: '63em',
   margin: 'auto',
-  marginTop: 5,
+  marginTop: '1%',
   borderRadius: 10,
   color: 'white',
 };
 
 const headerStyle = {
-  fontSize: 75,
-  color: 'white',
+  marginTop: '1%',
+  width: '60%',
 };

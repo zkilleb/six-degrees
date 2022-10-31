@@ -31,6 +31,7 @@ export function Submit({
             backgroundColor: '#1b2127',
             color: 'white',
             border: 'solid white',
+            borderRadius: 10,
           },
         }}
       >

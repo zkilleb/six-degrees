@@ -5,3 +5,4 @@ export { Guesses } from './GameForm/Guesses';
 export { GuessCard } from './GameForm/GuessCard';
 export { Submit } from './GameForm/Submit';
 export { Footer } from './Footer';
+export { Header } from './Header';
