@@ -13,14 +13,30 @@ export function Submit({
   guesses,
   firstActor,
   secondActor,
+  submitCallback,
 }: {
   guesses?: AutoComplete[];
   firstActor?: TMDBActor;
   secondActor?: TMDBActor;
+  submitCallback: () => void;
 }) {
   const [submittedResult, setSubmittedResult] = React.useState<boolean>();
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
+  const [time, setTime] = React.useState(0);
+  const [running, setRunning] = React.useState(true);
+
+  React.useEffect(() => {
+    let interval: any;
+    if (running) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else if (!running) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [running]);
 
   return (
     <div>
@@ -28,6 +44,8 @@ export function Submit({
         open={modalOpen}
         PaperProps={{
           style: {
+            display: 'flex',
+            alignItems: 'center',
             backgroundColor: '#1b2127',
             color: 'white',
             border: 'solid white',
@@ -37,8 +55,9 @@ export function Submit({
       >
         <DialogTitle>{submittedResult ? 'Correct' : 'Incorrect'}</DialogTitle>
 
-        <DialogContent>
-          {submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}
+        <DialogContent sx={contentStyle}>
+          <div>{submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}</div>
+          <div>{submittedResult ? formatTimer(time) : ''}</div>
         </DialogContent>
 
         <DialogActions>
@@ -63,6 +82,7 @@ export function Submit({
   );
 
   async function verifyAnswer() {
+    setRunning(false);
     let validationFlag = false;
     if (guesses && guesses.length > 0) {
       for (let i = 0; i < guesses.length; i++) {
@@ -125,9 +145,21 @@ export function Submit({
   function handleModalClose() {
     setModalOpen(false);
     setSubmitDisabled(true);
+    submitCallback();
+  }
+
+  function formatTimer(time: number) {
+    const totalSeconds = Math.floor(time / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds - minutes * 60;
+    return `${minutes} min(s) ${seconds} sec(s)`;
   }
 }
 
 const buttonStyle = {
   marginTop: '5%',
+};
+
+const contentStyle = {
+  alignItems: 'center',
 };

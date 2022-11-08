@@ -10,6 +10,7 @@ export function GameForm() {
   const [firstActor, setFirstActor] = React.useState<TMDBActor>();
   const [secondActor, setSecondActor] = React.useState<TMDBActor>();
   const [guesses, setGuesses] = React.useState<AutoComplete[]>();
+  const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const firstRand = Math.floor(Math.random() * actors.length);
@@ -27,15 +28,24 @@ export function GameForm() {
         <ActorCard to={false} name={firstActor?.name} id={firstActor?.id} />
         <ActorCard to={true} name={secondActor?.name} id={secondActor?.id} />
       </div>
-      <MovieField callback={handleCallback} guesses={guesses} />
+      <MovieField
+        callback={handleCallback}
+        guesses={guesses}
+        submitDisabled={submitDisabled}
+      />
       <Guesses guesses={guesses} deleteCallback={deleteCallback} />
       <Submit
         guesses={guesses}
         firstActor={firstActor}
         secondActor={secondActor}
+        submitCallback={submitCallback}
       />
     </div>
   );
+
+  function submitCallback() {
+    setSubmitDisabled(true);
+  }
 
   function handleCallback(value: AutoComplete) {
     let tempResult = guesses ? [...guesses] : [];

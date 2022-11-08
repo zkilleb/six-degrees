@@ -13,9 +13,11 @@ import { AutoComplete } from '../../classes';
 export function MovieField({
   callback,
   guesses,
+  submitDisabled,
 }: {
   callback: (value: AutoComplete) => void;
   guesses?: AutoComplete[];
+  submitDisabled?: boolean;
 }) {
   const [query, setQuery] = React.useState<any[]>();
   const [result, setResult] = React.useState<AutoComplete>();
@@ -30,6 +32,7 @@ export function MovieField({
     <div>
       <Autocomplete
         disablePortal
+        disabled={submitDisabled}
         onChange={(e, v) => handleClick(v)}
         options={query !== undefined ? query : []}
         loading={loading}
@@ -54,7 +57,7 @@ export function MovieField({
         )}
       />
       <Button
-        disabled={guesses && guesses.length >= 6}
+        disabled={(guesses && guesses.length >= 6) || submitDisabled}
         onClick={handleAdd}
         sx={buttonStyle}
         variant="contained"
