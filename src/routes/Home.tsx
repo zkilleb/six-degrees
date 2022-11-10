@@ -25,5 +25,5 @@ const paperStyle = {
 
 const headerStyle = {
   marginTop: '1%',
-  width: '60%',
+  width: '40%',
 };

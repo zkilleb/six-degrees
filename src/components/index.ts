@@ -6,3 +6,5 @@ export { GuessCard } from './GameForm/GuessCard';
 export { Submit } from './GameForm/Submit';
 export { Footer } from './Footer';
 export { Header } from './Header';
+export { HowToPlay } from './HowToPlay';
+export { Settings } from './Settings';
