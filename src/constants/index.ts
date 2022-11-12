@@ -1,2 +1,2 @@
 export { colors } from './colors';
-export { modernActors as actors} from './actors';
+export { modernActors, classicActors } from './actors';

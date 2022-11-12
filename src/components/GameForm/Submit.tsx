@@ -25,7 +25,9 @@ export function Submit({
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [time, setTime] = React.useState(0);
   const [running, setRunning] = React.useState(true);
-  const [streak, setStreak] = React.useState<string | null>(localStorage.getItem('streak'));
+  const [streak, setStreak] = React.useState<string | null>(
+    localStorage.getItem('streak'),
+  );
 
   React.useEffect(() => {
     let interval: any;
@@ -142,17 +144,17 @@ export function Submit({
   }
 
   function handleStreak(correct: boolean) {
-    if(correct) {
-      if(streak) {
-        localStorage.setItem('streak', (parseInt(streak) + 1).toString())
-        setStreak((parseInt(streak) + 1).toString())
+    if (correct) {
+      if (streak) {
+        localStorage.setItem('streak', (parseInt(streak) + 1).toString());
+        setStreak((parseInt(streak) + 1).toString());
       } else {
-        localStorage.setItem('streak', '1')
-        setStreak('1')
+        localStorage.setItem('streak', '1');
+        setStreak('1');
       }
-    } else if(streak){
-      localStorage.setItem('streak', '0')
-      setStreak('0')
+    } else if (streak) {
+      localStorage.setItem('streak', '0');
+      setStreak('0');
     }
   }
 

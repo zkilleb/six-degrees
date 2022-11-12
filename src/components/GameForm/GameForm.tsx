@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoComplete, TMDBActor } from '../../classes';
-import { actors } from '../../constants';
+import { modernActors, classicActors } from '../../constants';
 import { ActorCard } from './ActorCard';
 import { Guesses } from './Guesses';
 import { MovieField } from './MovieField';
@@ -13,13 +13,22 @@ export function GameForm() {
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    const firstRand = Math.floor(Math.random() * actors.length);
-    let secondRand = Math.floor(Math.random() * actors.length);
-    while (firstRand === secondRand) {
-      secondRand = Math.floor(Math.random() * actors.length);
+    const saved = localStorage.getItem('era');
+    let tempActorArr: TMDBActor[] = [];
+    if (saved && saved === 'classic') {
+      tempActorArr = [...classicActors];
+    } else if (saved && saved === 'both') {
+      tempActorArr = [...classicActors, ...modernActors];
+    } else if (!saved || saved === 'modern') {
+      tempActorArr = [...modernActors];
     }
-    setFirstActor(actors[firstRand]);
-    setSecondActor(actors[secondRand]);
+    const firstRand = Math.floor(Math.random() * tempActorArr.length);
+    let secondRand = Math.floor(Math.random() * tempActorArr.length);
+    while (firstRand === secondRand) {
+      secondRand = Math.floor(Math.random() * tempActorArr.length);
+    }
+    setFirstActor(tempActorArr[firstRand]);
+    setSecondActor(tempActorArr[secondRand]);
   }, []);
 
   return (
