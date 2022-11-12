@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { EraToggle } from './EraToggle';
 
 export function Settings({
   settingsModalOpen,
@@ -28,7 +29,9 @@ export function Settings({
       }}
     >
       <DialogTitle>Settings</DialogTitle>
-      <DialogContent></DialogContent>
+      <DialogContent>
+        <EraToggle />
+      </DialogContent>
       <DialogActions>
         <Button variant="contained" onClick={handleSettingsClick}>
           Close

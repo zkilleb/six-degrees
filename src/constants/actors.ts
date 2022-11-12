@@ -1,4 +1,4 @@
-export const actors = [
+export const modernActors = [
   { name: 'Adam Driver', id: 1023139 },
   { name: 'Adam Sandler', id: 19292 },
   { name: 'Al Pacino', id: 1158 },
@@ -144,3 +144,7 @@ export const actors = [
   { name: 'Woody Harrelson', id: 57755 },
   { name: 'Zoe Saldaña', id: 8691 },
 ];
+
+const classicActors = [
+  
+]

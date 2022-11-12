@@ -25,6 +25,7 @@ export function Submit({
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [time, setTime] = React.useState(0);
   const [running, setRunning] = React.useState(true);
+  const [streak, setStreak] = React.useState<string | null>(localStorage.getItem('streak'));
 
   React.useEffect(() => {
     let interval: any;
@@ -57,6 +58,7 @@ export function Submit({
 
         <DialogContent sx={contentStyle}>
           <div>{submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}</div>
+          <div>{submittedResult ? `Current Streak: ${streak}` : ''}</div>
           <div>{submittedResult ? formatTimer(time) : ''}</div>
         </DialogContent>
 
@@ -136,6 +138,22 @@ export function Submit({
     }
     setSubmittedResult(validationFlag);
     setModalOpen(true);
+    handleStreak(validationFlag);
+  }
+
+  function handleStreak(correct: boolean) {
+    if(correct) {
+      if(streak) {
+        localStorage.setItem('streak', (parseInt(streak) + 1).toString())
+        setStreak((parseInt(streak) + 1).toString())
+      } else {
+        localStorage.setItem('streak', '1')
+        setStreak('1')
+      }
+    } else if(streak){
+      localStorage.setItem('streak', '0')
+      setStreak('0')
+    }
   }
 
   function handleReload() {
