@@ -5,9 +5,12 @@ import {
   DialogContent,
   DialogTitle,
   DialogActions,
+  Snackbar,
+  Alert,
 } from '@mui/material';
 import { getMovieById } from '../../api';
 import { AutoComplete, TMDBActor } from '../../classes';
+import { Share } from '@mui/icons-material';
 
 export function Submit({
   guesses,
@@ -22,6 +25,7 @@ export function Submit({
 }) {
   const [submittedResult, setSubmittedResult] = React.useState<boolean>();
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [copyOpen, setCopyOpen] = React.useState<boolean>(false);
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [time, setTime] = React.useState(0);
   const [running, setRunning] = React.useState(true);
@@ -43,6 +47,12 @@ export function Submit({
 
   return (
     <div>
+      <Snackbar open={copyOpen} autoHideDuration={5000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="info">
+          Copied results to clipboard
+        </Alert>
+      </Snackbar>
+
       <Dialog
         open={modalOpen}
         PaperProps={{
@@ -65,6 +75,9 @@ export function Submit({
         </DialogContent>
 
         <DialogActions>
+          <Button variant="contained" onClick={handleShare}>
+            Share <Share />
+          </Button>
           <Button variant="contained" onClick={handleModalClose}>
             Close
           </Button>
@@ -84,6 +97,34 @@ export function Submit({
       </Button>
     </div>
   );
+
+  function handleShare() {
+    let writeValue = `🥓Six Degrees of Kevin Bacon 🥓\n⭐${
+      firstActor?.name
+    } ➡️ ${secondActor?.name}⭐\n${parseGuesses()}\n⏱️${formatTimer(time)}`;
+    navigator.clipboard.writeText(writeValue);
+    setCopyOpen(true);
+  }
+
+  function parseGuesses() {
+    let tempString = '';
+    let length = 0;
+    if (submittedResult) {
+      guesses?.forEach(() => {
+        tempString += '🟩';
+        length++;
+      });
+    } else {
+      guesses?.forEach(() => {
+        tempString += '🟥';
+        length++;
+      });
+    }
+    for (let i = 0; i < 6 - length; i++) {
+      tempString += '🔲';
+    }
+    return tempString;
+  }
 
   async function verifyAnswer() {
     setRunning(false);
@@ -173,6 +214,10 @@ export function Submit({
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds - minutes * 60;
     return `${minutes} min(s) ${seconds} sec(s)`;
+  }
+
+  function handleClose() {
+    setCopyOpen(false);
   }
 }
 
