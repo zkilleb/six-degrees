@@ -1,14 +1,26 @@
 import React from 'react';
-import { Help, Settings as SettingsIcon } from '@mui/icons-material';
+import {
+  Help,
+  Settings as SettingsIcon,
+  Share as ShareIcon,
+} from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
-import { HowToPlay, Settings } from '../components';
+import { HowToPlay, Settings, Share } from '../components';
 
 export function Header() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [settingsModalOpen, setSettingsModalOpen] = React.useState(false);
+  const [shareModalOpen, setShareModalOpen] = React.useState(false);
 
   return (
     <div style={headerStyle}>
+      {shareModalOpen && (
+        <Share
+          shareModalOpen={shareModalOpen}
+          handleShareClick={handleShareClick}
+        />
+      )}
+
       {modalOpen && (
         <HowToPlay modalOpen={modalOpen} handleClick={handleClick} />
       )}
@@ -21,6 +33,12 @@ export function Header() {
       )}
 
       <div style={textWrapperStyle}>
+        <Tooltip title="Share">
+          <div style={settingsStyle}>
+            <ShareIcon onClick={handleShareClick} />
+          </div>
+        </Tooltip>
+
         <Tooltip title="Settings">
           <div style={settingsStyle}>
             <SettingsIcon onClick={handleSettingsClick} />
@@ -33,6 +51,10 @@ export function Header() {
       </div>
     </div>
   );
+
+  function handleShareClick() {
+    setShareModalOpen(!shareModalOpen);
+  }
 
   function handleSettingsClick() {
     setSettingsModalOpen(!settingsModalOpen);

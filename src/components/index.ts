@@ -9,3 +9,4 @@ export { Header } from './Header';
 export { HowToPlay } from './HowToPlay';
 export { Settings } from './Settings';
 export { EraToggle } from './EraToggle';
+export { Share } from './Share';
