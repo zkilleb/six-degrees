@@ -34,7 +34,7 @@ export function Share({
       }}
     >
       <DialogTitle>Share</DialogTitle>
-      <DialogContent>
+      <DialogContent sx={wrapperStyle}>
         <div style={contentStyle}>
           <TwitterShareButton
             url="facebook.com"
@@ -79,3 +79,7 @@ export function Share({
 const contentStyle = {
   margin: 5,
 };
+
+const wrapperStyle = {
+    display: 'flex'
+}
