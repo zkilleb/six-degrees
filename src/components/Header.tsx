@@ -77,7 +77,7 @@ const textWrapperStyle = {
   color: 'white',
   textDecoration: 'none',
   marginLeft: 'auto',
-  marginRight: '2%',
+  marginRight: '5%',
   display: 'flex',
 };
 
