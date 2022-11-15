@@ -81,5 +81,5 @@ const contentStyle = {
 };
 
 const wrapperStyle = {
-    display: 'flex'
-}
+  display: 'flex',
+};

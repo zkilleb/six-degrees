@@ -5,9 +5,11 @@ import { GuessCard } from './GuessCard';
 export function Guesses({
   guesses,
   deleteCallback,
+  submitDisabled,
 }: {
   guesses?: AutoComplete[];
   deleteCallback: () => void;
+  submitDisabled: boolean;
 }) {
   const [guestArr, setGuestArr] = React.useState<AutoComplete[]>([]);
 
@@ -65,6 +67,7 @@ export function Guesses({
               posterPath={guess.posterPath}
               deleteCallback={deleteCallback}
               isLast={calculateIsLast(guestArr, index)}
+              submitDisabled={submitDisabled}
             />
           );
         })}

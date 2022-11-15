@@ -42,7 +42,11 @@ export function GameForm() {
         guesses={guesses}
         submitDisabled={submitDisabled}
       />
-      <Guesses guesses={guesses} deleteCallback={deleteCallback} />
+      <Guesses
+        guesses={guesses}
+        deleteCallback={deleteCallback}
+        submitDisabled={submitDisabled}
+      />
       <Submit
         guesses={guesses}
         firstActor={firstActor}

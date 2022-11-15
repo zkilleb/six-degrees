@@ -7,11 +7,13 @@ export function GuessCard({
   posterPath,
   deleteCallback,
   isLast,
+  submitDisabled,
 }: {
   name?: string;
   posterPath?: string;
   deleteCallback: () => void;
   isLast?: boolean;
+  submitDisabled: boolean;
 }) {
   return (
     <div style={cardStyle}>
@@ -29,8 +31,14 @@ export function GuessCard({
             <div style={altStyle}>{name}</div>
           )}
           {isLast && (
-            <Tooltip placement="top" title="Delete Movie">
-              <RemoveCircle onClick={handleDelete} sx={iconStyle} />
+            <Tooltip
+              placement="top"
+              title={submitDisabled ? '' : 'Delete Movie'}
+            >
+              <RemoveCircle
+                onClick={handleDelete}
+                sx={submitDisabled ? disabledIconStyle : iconStyle}
+              />
             </Tooltip>
           )}
         </div>
@@ -41,7 +49,7 @@ export function GuessCard({
   );
 
   function handleDelete() {
-    deleteCallback();
+    if (!submitDisabled) deleteCallback();
   }
 }
 
@@ -67,6 +75,13 @@ const imageStyle = {
 
 const iconStyle = {
   color: '#ff4d4d',
+  position: 'absolute',
+  top: 0,
+  right: 0,
+};
+
+const disabledIconStyle = {
+  color: '#C5C5C5',
   position: 'absolute',
   top: 0,
   right: 0,
