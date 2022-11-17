@@ -5,7 +5,12 @@ import { colors } from '../constants';
 export function Home() {
   return (
     <div>
-      <img style={headerStyle} src="banner-logo.png" alt="Logo" />
+      <img
+        data-cy="TitleBanner"
+        style={headerStyle}
+        src="banner-logo.png"
+        alt="Logo"
+      />
       <Paper elevation={1} sx={paperStyle}>
         <GameForm />
       </Paper>

@@ -33,10 +33,11 @@ export function Share({
         },
       }}
     >
-      <DialogTitle>Share</DialogTitle>
+      <DialogTitle data-cy="ShareModalHeader">Share</DialogTitle>
       <DialogContent sx={wrapperStyle}>
         <div style={contentStyle}>
           <TwitterShareButton
+            data-cy="TwitterShareButton"
             url="facebook.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
@@ -47,6 +48,7 @@ export function Share({
         </div>
         <div style={contentStyle}>
           <FacebookShareButton
+            data-cy="FacebookShareButton"
             url="facebook.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
@@ -58,6 +60,7 @@ export function Share({
 
         <div style={contentStyle}>
           <RedditShareButton
+            data-cy="RedditShareButton"
             url="facebook.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
@@ -68,7 +71,11 @@ export function Share({
         </div>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" onClick={handleShareClick}>
+        <Button
+          variant="contained"
+          onClick={handleShareClick}
+          data-cy="ShareModalClose"
+        >
           Close
         </Button>
       </DialogActions>

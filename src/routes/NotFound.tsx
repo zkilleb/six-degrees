@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 export function NotFound() {
   return (
     <div>
-      <div style={headerStyle}>Page Not Found</div>
-      <Link style={linkStyle} to="/">
+      <div data-cy="NotFoundHeader" style={headerStyle}>
+        Page Not Found
+      </div>
+      <Link data-cy="NotFoundLink" style={linkStyle} to="/">
         Return Home
       </Link>
     </div>

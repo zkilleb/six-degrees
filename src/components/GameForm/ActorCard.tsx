@@ -26,7 +26,9 @@ export function ActorCard({
     <div style={actorStyle}>
       <div style={headerStyle}>{to ? 'To' : 'Connect'}</div>
       <img style={imageStyle} alt={name} src={imagePath} />
-      <div style={subHeaderStyle}>{name}</div>
+      <div style={subHeaderStyle} data-cy="ActorName">
+        {name}
+      </div>
     </div>
   );
 }

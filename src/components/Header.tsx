@@ -34,7 +34,7 @@ export function Header() {
 
       <div style={textWrapperStyle}>
         <Tooltip title="Share">
-          <div style={settingsStyle}>
+          <div style={settingsStyle} data-cy="HeaderShare">
             <ShareIcon onClick={handleShareClick} />
           </div>
         </Tooltip>
