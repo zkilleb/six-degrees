@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { AutoComplete, TMDBActor } from '../../classes';
 import { modernActors, classicActors } from '../../constants';
 import { ActorCard } from './ActorCard';
@@ -11,25 +12,50 @@ export function GameForm() {
   const [secondActor, setSecondActor] = React.useState<TMDBActor>();
   const [guesses, setGuesses] = React.useState<AutoComplete[]>();
   const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   React.useEffect(() => {
-    const saved = localStorage.getItem('era');
-    let tempActorArr: TMDBActor[] = [];
-    if (saved && saved === 'classic') {
-      tempActorArr = [...classicActors];
-    } else if (saved && saved === 'both') {
-      tempActorArr = [...classicActors, ...modernActors];
-    } else if (!saved || saved === 'modern') {
-      tempActorArr = [...modernActors];
+    const combinedArr = [...classicActors, ...modernActors];
+    if (
+      searchParams.get('firstActor') &&
+      searchParams.get('secondActor') &&
+      combinedArr.find(
+        (actor) => actor.name === searchParams.get('firstActor'),
+      ) &&
+      combinedArr.find(
+        (actor) => actor.name === searchParams.get('secondActor'),
+      )
+    ) {
+      setFirstActor(
+        combinedArr.find(
+          (actor) => actor.name === searchParams.get('firstActor'),
+        ),
+      );
+      setSecondActor(
+        combinedArr.find(
+          (actor) => actor.name === searchParams.get('secondActor'),
+        ),
+      );
+    } else {
+      setSearchParams(undefined);
+      const saved = localStorage.getItem('era');
+      let tempActorArr: TMDBActor[] = [];
+      if (saved && saved === 'classic') {
+        tempActorArr = [...classicActors];
+      } else if (saved && saved === 'both') {
+        tempActorArr = [...combinedArr];
+      } else if (!saved || saved === 'modern') {
+        tempActorArr = [...modernActors];
+      }
+      const firstRand = Math.floor(Math.random() * tempActorArr.length);
+      let secondRand = Math.floor(Math.random() * tempActorArr.length);
+      while (firstRand === secondRand) {
+        secondRand = Math.floor(Math.random() * tempActorArr.length);
+      }
+      setFirstActor(tempActorArr[firstRand]);
+      setSecondActor(tempActorArr[secondRand]);
     }
-    const firstRand = Math.floor(Math.random() * tempActorArr.length);
-    let secondRand = Math.floor(Math.random() * tempActorArr.length);
-    while (firstRand === secondRand) {
-      secondRand = Math.floor(Math.random() * tempActorArr.length);
-    }
-    setFirstActor(tempActorArr[firstRand]);
-    setSecondActor(tempActorArr[secondRand]);
-  }, []);
+  }, [searchParams, setSearchParams]);
 
   return (
     <div>

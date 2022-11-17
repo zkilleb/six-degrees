@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { getMovieById } from '../../api';
 import { AutoComplete, TMDBActor } from '../../classes';
-import { Share } from '@mui/icons-material';
+import { Share, Group } from '@mui/icons-material';
 
 export function Submit({
   guesses,
@@ -47,7 +47,7 @@ export function Submit({
 
   return (
     <div>
-      <Snackbar open={copyOpen} autoHideDuration={5000} onClose={handleClose}>
+      <Snackbar open={copyOpen} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="info">
           Copied results to clipboard
         </Alert>
@@ -58,6 +58,7 @@ export function Submit({
         PaperProps={{
           style: {
             display: 'flex',
+            flexWrap: 'wrap',
             alignItems: 'center',
             backgroundColor: '#1b2127',
             color: 'white',
@@ -78,6 +79,9 @@ export function Submit({
           <Button variant="contained" onClick={handleShare}>
             Share <Share />
           </Button>
+          <Button variant="contained" onClick={handleChallenge}>
+            Challenge <Group />
+          </Button>
           <Button variant="contained" onClick={handleModalClose}>
             Close
           </Button>
@@ -97,6 +101,18 @@ export function Submit({
       </Button>
     </div>
   );
+
+  function handleChallenge() {
+    if (firstActor && secondActor) {
+      let writeValue = `${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }?firstActor=${encodeURIComponent(
+        firstActor.name,
+      )}&secondActor=${encodeURIComponent(secondActor.name)}`;
+      navigator.clipboard.writeText(writeValue);
+      setCopyOpen(true);
+    }
+  }
 
   function handleShare() {
     let writeValue = `🥓Six Degrees of Kevin Bacon 🥓\n⭐${
