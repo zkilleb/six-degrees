@@ -7,7 +7,7 @@ export function EraToggle() {
   const [era, setEra] = React.useState(handleLocalStorage);
   return (
     <div>
-      <div style={headerStyle}>Starting Actor Era</div>
+      <div style={headerStyle} data-cy='EraToggleHeader'>Starting Actor Era</div>
       <ToggleButtonGroup
         color="primary"
         value={era}

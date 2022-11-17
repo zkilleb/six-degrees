@@ -40,7 +40,7 @@ export function Header() {
         </Tooltip>
 
         <Tooltip title="Settings">
-          <div style={settingsStyle}>
+          <div style={settingsStyle} data-cy="HeaderSettings">
             <SettingsIcon onClick={handleSettingsClick} />
           </div>
         </Tooltip>

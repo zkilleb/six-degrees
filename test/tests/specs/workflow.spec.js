@@ -28,4 +28,12 @@ describe('Test User Workflow', () => {
     cy.get(pageObjects.shareModalClose).click();
     cy.get(pageObjects.shareModalHeader).should('not.be', 'visible');
   });
+
+  it('Settings Modal Should Open', () => {
+    cy.get(pageObjects.headerSettings).click();
+    cy.get(pageObjects.settingsModalHeader).should('contain', 'Settings');
+    cy.get(pageObjects.eraToggleHeader).should('contain', 'Starting Actor Era');
+    cy.get(pageObjects.settingsModalClose).click();
+    cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
+  });
 });

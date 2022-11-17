@@ -9,4 +9,8 @@ export const pageObjects = {
   facebookShareButton: '[data-cy=FacebookShareButton]',
   redditShareButton: '[data-cy=RedditShareButton]',
   shareModalClose: '[data-cy=ShareModalClose]',
+  headerSettings: '[data-cy=HeaderSettings]',
+  settingsModalHeader: '[data-cy=SettingsModalHeader]',
+  eraToggleHeader: '[data-cy=EraToggleHeader]',
+  settingsModalClose: '[data-cy=SettingsModalClose]'
 };
