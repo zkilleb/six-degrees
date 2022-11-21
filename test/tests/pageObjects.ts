@@ -12,5 +12,8 @@ export const pageObjects = {
   headerSettings: '[data-cy=HeaderSettings]',
   settingsModalHeader: '[data-cy=SettingsModalHeader]',
   eraToggleHeader: '[data-cy=EraToggleHeader]',
-  settingsModalClose: '[data-cy=SettingsModalClose]'
+  settingsModalClose: '[data-cy=SettingsModalClose]',
+  modernButton: '[data-cy=ModernButton]',
+  bothButton: '[data-cy=BothButton]',
+  classicButton: '[data-cy=ClassicButton]',
 };

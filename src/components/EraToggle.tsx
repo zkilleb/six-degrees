@@ -7,16 +7,24 @@ export function EraToggle() {
   const [era, setEra] = React.useState(handleLocalStorage);
   return (
     <div>
-      <div style={headerStyle} data-cy='EraToggleHeader'>Starting Actor Era</div>
+      <div style={headerStyle} data-cy="EraToggleHeader">
+        Starting Actor Era
+      </div>
       <ToggleButtonGroup
         color="primary"
         value={era}
         exclusive
         onChange={handleChange}
       >
-        <StyledToggleButton value="modern">Modern</StyledToggleButton>
-        <StyledToggleButton value="both">Both</StyledToggleButton>
-        <StyledToggleButton value="classic">Classic</StyledToggleButton>
+        <StyledToggleButton data-cy="ModernButton" value="modern">
+          Modern
+        </StyledToggleButton>
+        <StyledToggleButton data-cy="BothButton" value="both">
+          Both
+        </StyledToggleButton>
+        <StyledToggleButton data-cy="ClassicButton" value="classic">
+          Classic
+        </StyledToggleButton>
       </ToggleButtonGroup>
     </div>
   );

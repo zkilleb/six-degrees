@@ -28,12 +28,16 @@ export function Settings({
         },
       }}
     >
-      <DialogTitle data-cy='SettingsModalHeader'>Settings</DialogTitle>
+      <DialogTitle data-cy="SettingsModalHeader">Settings</DialogTitle>
       <DialogContent>
         <EraToggle />
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" onClick={handleSettingsClick} data-cy='SettingsModalClose'>
+        <Button
+          variant="contained"
+          onClick={handleSettingsClick}
+          data-cy="SettingsModalClose"
+        >
           Close
         </Button>
       </DialogActions>
