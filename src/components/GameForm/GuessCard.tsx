@@ -16,7 +16,7 @@ export function GuessCard({
   submitDisabled: boolean;
 }) {
   return (
-    <div style={cardStyle}>
+    <div style={cardStyle} data-cy="GuessCard">
       {name ? (
         <div style={wrapperStyle}>
           {posterPath ? (

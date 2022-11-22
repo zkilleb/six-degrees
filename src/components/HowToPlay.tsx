@@ -27,8 +27,8 @@ export function HowToPlay({
         },
       }}
     >
-      <DialogTitle>How to Play</DialogTitle>
-      <DialogContent>
+      <DialogTitle data-cy="HowToPlayHeader">How to Play</DialogTitle>
+      <DialogContent data-cy="HowToPlayContent">
         <span>
           This game is a version of Six Degrees of Kevin Bacon. You are given an
           actor to start with and an actor to end with. Your goal is to try to
@@ -57,7 +57,11 @@ export function HowToPlay({
         </span>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" onClick={handleClick}>
+        <Button
+          data-cy="HowToPlayClose"
+          variant="contained"
+          onClick={handleClick}
+        >
           Close
         </Button>
       </DialogActions>

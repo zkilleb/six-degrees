@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 
 export function Footer() {
   return (
-    <footer style={footerStyle} onClick={handleClick}>
+    <footer style={footerStyle} onClick={handleClick} data-cy="Footer">
       <img style={imageStyle} src="tmdb-logo.svg" alt="TMDB Logo" />
       <div>
         This product uses the TMDB API but is not endorsed or certified by TMDB.

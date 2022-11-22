@@ -23,7 +23,7 @@ export function ActorCard({
   }, [id]);
 
   return (
-    <div style={actorStyle}>
+    <div style={actorStyle} data-cy="ActorCard">
       <div style={headerStyle}>{to ? 'To' : 'Connect'}</div>
       <img style={imageStyle} alt={name} src={imagePath} />
       <div style={subHeaderStyle} data-cy="ActorName">

@@ -40,6 +40,7 @@ export function MovieField({
           <CssTextField
             {...params}
             autoComplete="off"
+            data-cy="MovieField"
             placeholder="Guess a movie..."
             onChange={debouncedChangeHandler}
             InputProps={{
@@ -61,6 +62,7 @@ export function MovieField({
         onClick={handleAdd}
         sx={buttonStyle}
         variant="contained"
+        data-cy="AddButton"
       >
         Add
       </Button>

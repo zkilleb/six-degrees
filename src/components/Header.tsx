@@ -45,7 +45,7 @@ export function Header() {
           </div>
         </Tooltip>
 
-        <Tooltip title="Help">
+        <Tooltip title="Help" data-cy="HeaderHelp">
           <Help onClick={handleClick} />
         </Tooltip>
       </div>

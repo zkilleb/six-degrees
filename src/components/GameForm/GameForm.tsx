@@ -58,7 +58,7 @@ export function GameForm() {
   }, [searchParams, setSearchParams]);
 
   return (
-    <div>
+    <div data-cy="GameForm">
       <div style={actorsStyle}>
         <ActorCard to={false} name={firstActor?.name} id={firstActor?.id} />
         <ActorCard to={true} name={secondActor?.name} id={secondActor?.id} />

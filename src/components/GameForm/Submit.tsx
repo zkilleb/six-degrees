@@ -96,6 +96,7 @@ export function Submit({
         onClick={verifyAnswer}
         sx={buttonStyle}
         variant="contained"
+        data-cy="SubmitButton"
       >
         Submit {submittedResult && submittedResult.toString()}
       </Button>
