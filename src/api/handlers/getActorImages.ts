@@ -1,13 +1,10 @@
 import { api } from '../constants';
-import { generateTMDBParams } from '../utils';
 
-export function getActorImages(id: number) {
+export async function getActorImages(id: number) {
   try {
-    return api
-      .get(`/person/${id}/images`, generateTMDBParams(id.toString()))
-      .then((res) => {
-        return res.data.profiles[0].file_path;
-      });
+    return await api.get(`/image/${id}`).then((res) => {
+      return res.data.response;
+    });
   } catch (e: any) {
     console.log(e.message);
   }

@@ -1,10 +1,7 @@
 import { api } from '../constants';
-import { generateTMDBParams } from '../utils';
 
-export function getActorById(id: number) {
-  return api
-    .get(`/person/${id}/movie_credits`, generateTMDBParams(id.toString()))
-    .then((res) => {
-      return res.data.cast;
-    });
+export async function getActorById(id: number) {
+  return await api.get(`/person/id${id}`).then((res) => {
+    return res.data.response;
+  });
 }

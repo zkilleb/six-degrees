@@ -1,10 +1,9 @@
 import { api } from '../constants';
-import { generateTMDBParams } from '../utils';
 
-export function getMovieByKeyword(keyword: string) {
+export async function getMovieByKeyword(keyword: string) {
   if (keyword) {
-    return api.get(`/search/movie`, generateTMDBParams(keyword)).then((res) => {
-      return res.data.results;
+    return api.get(`movie/name/${keyword}`).then((res) => {
+      return res.data.response;
     });
   } else return [];
 }
