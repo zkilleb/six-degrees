@@ -48,7 +48,8 @@
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --config video=false",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "aws s3 sync build/ s3://sixdob.com"
   },
   "eslintConfig": {
     "extends": [

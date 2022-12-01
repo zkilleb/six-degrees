@@ -96,7 +96,7 @@ const textWrapperStyle = {
   color: 'white',
   textDecoration: 'none',
   marginLeft: 'auto',
-  marginRight: '5%',
+  marginRight: '15%',
   display: 'flex',
 };
 
