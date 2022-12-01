@@ -27,4 +27,8 @@ export const pageObjects = {
   guessCard: '[data-cy=GuessCard]',
   submitButton: '[data-cy=SubmitButton]',
   footer: '[data-cy=Footer]',
+  headerSupport: '[data-cy=HeaderSupport]',
+  supportModalHeader: '[data-cy=SupportHeader]',
+  supportClose: '[data-cy=SupportClose]',
+  supportButton: '[data-cy=SupportButton]'
 };

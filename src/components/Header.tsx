@@ -3,17 +3,26 @@ import {
   Help,
   Settings as SettingsIcon,
   Share as ShareIcon,
+  Coffee,
 } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
-import { HowToPlay, Settings, Share } from '../components';
+import { HowToPlay, Settings, Share, Support } from '../components';
 
 export function Header() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [settingsModalOpen, setSettingsModalOpen] = React.useState(false);
   const [shareModalOpen, setShareModalOpen] = React.useState(false);
+  const [supportModalOpen, setSupportModalOpen] = React.useState(false);
 
   return (
     <div style={headerStyle}>
+      {supportModalOpen && (
+        <Support
+          supportModalOpen={supportModalOpen}
+          handleSupportClick={handleSupportClick}
+        />
+      )}
+
       {shareModalOpen && (
         <Share
           shareModalOpen={shareModalOpen}
@@ -33,6 +42,12 @@ export function Header() {
       )}
 
       <div style={textWrapperStyle}>
+        <Tooltip title="Support Us">
+          <div style={settingsStyle} data-cy="HeaderSupport">
+            <Coffee onClick={handleSupportClick} />
+          </div>
+        </Tooltip>
+
         <Tooltip title="Share">
           <div style={settingsStyle} data-cy="HeaderShare">
             <ShareIcon onClick={handleShareClick} />
@@ -51,6 +66,10 @@ export function Header() {
       </div>
     </div>
   );
+
+  function handleSupportClick() {
+    setSupportModalOpen(!supportModalOpen);
+  }
 
   function handleShareClick() {
     setShareModalOpen(!shareModalOpen);

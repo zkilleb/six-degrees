@@ -15,6 +15,14 @@ describe('Test User Workflow', () => {
       cy.get(pageObjects.titleBanner).should('be.visible');
     });
 
+    it('Support Modal Should Open', () => {
+      cy.get(pageObjects.headerSupport).click();
+      cy.get(pageObjects.supportModalHeader).should('contain', 'Support');
+      cy.get(pageObjects.supportButton).should('contain', 'Support');
+      cy.get(pageObjects.supportClose).click();
+      cy.get(pageObjects.supportModalHeader).should('not.be', 'visible');
+    })
+
     it('Share Modal Should Open', () => {
       cy.get(pageObjects.headerShare).click();
       cy.get(pageObjects.shareModalHeader).should('contain', 'Share');
