@@ -47,7 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --config video=false",
+    "cypress:run": "cypress run --config video=false --browser chrome",
     "prepare": "husky install",
     "deploy": "aws s3 sync build/ s3://sixdob.com"
   },
