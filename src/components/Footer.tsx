@@ -24,6 +24,7 @@ const footerStyle: CSSProperties = {
   justifyContent: 'center',
   marginTop: '1%',
   cursor: 'pointer',
+  flexWrap: 'wrap'
 };
 
 const imageStyle = {
