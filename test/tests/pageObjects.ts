@@ -30,5 +30,5 @@ export const pageObjects = {
   headerSupport: '[data-cy=HeaderSupport]',
   supportModalHeader: '[data-cy=SupportHeader]',
   supportClose: '[data-cy=SupportClose]',
-  supportButton: '[data-cy=SupportButton]'
+  supportButton: '[data-cy=SupportButton]',
 };

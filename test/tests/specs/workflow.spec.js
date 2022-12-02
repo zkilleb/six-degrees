@@ -21,7 +21,7 @@ describe('Test User Workflow', () => {
       cy.get(pageObjects.supportButton).should('contain', 'Support');
       cy.get(pageObjects.supportClose).click();
       cy.get(pageObjects.supportModalHeader).should('not.be', 'visible');
-    })
+    });
 
     it('Share Modal Should Open', () => {
       cy.get(pageObjects.headerShare).click();
