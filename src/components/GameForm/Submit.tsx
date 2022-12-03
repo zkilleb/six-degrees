@@ -75,17 +75,17 @@ export function Submit({
           <div>{submittedResult ? formatTimer(time) : ''}</div>
         </DialogContent>
 
-        <DialogActions>
-          <Button variant="contained" onClick={handleShare}>
+        <DialogActions sx={buttonWrapper}>
+          <Button disabled={window.location.protocol === 'http:'} sx={buttonStyle} variant="contained" onClick={handleShare}>
             Share <Share />
           </Button>
-          <Button variant="contained" onClick={handleChallenge}>
+          <Button disabled={window.location.protocol === 'http:'} sx={buttonStyle} variant="contained" onClick={handleChallenge}>
             Challenge <Group />
           </Button>
-          <Button variant="contained" onClick={handleModalClose}>
+          <Button sx={buttonStyle} variant="contained" onClick={handleModalClose}>
             Close
           </Button>
-          <Button variant="contained" onClick={() => handleReload()}>
+          <Button sx={buttonStyle} variant="contained" onClick={() => handleReload()}>
             Play Again
           </Button>
         </DialogActions>
@@ -245,3 +245,9 @@ const buttonStyle = {
 const contentStyle = {
   alignItems: 'center',
 };
+
+const buttonWrapper = {
+  justifyContent: 'center',
+  display: 'flex',
+  flexWrap: 'wrap'
+}
