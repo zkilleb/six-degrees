@@ -76,10 +76,10 @@ export function Submit({
         </DialogContent>
 
         <DialogActions sx={buttonWrapper}>
-          <Button sx={buttonStyle} variant="contained" onClick={handleShare}>
+          <Button disabled={window.location.protocol === 'http:'} sx={buttonStyle} variant="contained" onClick={handleShare}>
             Share <Share />
           </Button>
-          <Button sx={buttonStyle} variant="contained" onClick={handleChallenge}>
+          <Button disabled={window.location.protocol === 'http:'} sx={buttonStyle} variant="contained" onClick={handleChallenge}>
             Challenge <Group />
           </Button>
           <Button sx={buttonStyle} variant="contained" onClick={handleModalClose}>
