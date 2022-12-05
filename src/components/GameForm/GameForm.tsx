@@ -50,7 +50,10 @@ export function GameForm() {
       }
       let firstRand = Math.floor(Math.random() * tempActorArr.length);
       let secondRand = Math.floor(Math.random() * tempActorArr.length);
-      while (baconMode === 'true' && tempActorArr[firstRand].name === 'Kevin Bacon') {
+      while (
+        baconMode === 'true' &&
+        tempActorArr[firstRand].name === 'Kevin Bacon'
+      ) {
         firstRand = Math.floor(Math.random() * tempActorArr.length);
       }
       while (firstRand === secondRand) {
