@@ -59,7 +59,7 @@ export function HowToPlay({
         <br />
         <span>
           Tip: If you are looking for an extra challenge, try changing your
-          starting actor era in the settings.
+          starting actor era or enabling Bacon Mode in the settings.
         </span>
       </DialogContent>
       <DialogActions>
