@@ -10,7 +10,22 @@ describe('Test User Workflow', () => {
     cy.visit('/');
   });
 
+  describe('Test playedBefore Cookie', () => {
+    it('Help Modal Should Open When Cookie Is Not Set', () => {
+      cy.get(pageObjects.howToPlayHeader).should('contain', 'How to Play');
+      cy.get(pageObjects.howToPlayClose).click();
+    });
+  });
+
   describe('Test Header Components', () => {
+    before(() => {
+      window.localStorage.setItem('playedBefore', true);
+    });
+
+    it('Help Modal Should Not Open When Cookie Is Set', () => {
+      cy.get(pageObjects.howToPlayHeader).should('not.exist');
+    });
+
     it('Title Banner Should Be Visible', () => {
       cy.get(pageObjects.titleBanner).should('be.visible');
     });
@@ -62,6 +77,7 @@ describe('Test User Workflow', () => {
         'rgb(68, 85, 102)',
       );
       cy.get(pageObjects.bothButton).click();
+      window.localStorage.setItem('playedBefore', true);
       cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
       cy.get(pageObjects.actorName)
         .eq(0)
@@ -102,6 +118,7 @@ describe('Test User Workflow', () => {
         'rgb(68, 85, 102)',
       );
       cy.get(pageObjects.classicButton).click();
+      window.localStorage.setItem('playedBefore', true);
       cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
       cy.get(pageObjects.actorName)
         .eq(0)
@@ -140,6 +157,7 @@ describe('Test User Workflow', () => {
         'rgb(68, 85, 102)',
       );
       cy.get(pageObjects.modernButton).click();
+      window.localStorage.setItem('playedBefore', true);
       cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
       cy.get(pageObjects.actorName)
         .eq(0)

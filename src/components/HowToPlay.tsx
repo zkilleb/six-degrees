@@ -55,6 +55,9 @@ export function HowToPlay({
           Evans and Chris Hemsworth. Star Trek stars Chris Hemsworth and Chris
           Pine. Therefore, a possible solution uses 2 films.
         </span>
+        <br />
+        <br />
+        <span>Tip: If you are looking for an extra challenge, try changing your starting actor era in the settings.</span>
       </DialogContent>
       <DialogActions>
         <Button
