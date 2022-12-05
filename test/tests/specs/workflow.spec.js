@@ -243,6 +243,7 @@ describe('Test User Workflow', () => {
     it('Submit Button Should Be Visible', () => {
       cy.get(pageObjects.submitButton).should('contain', 'Submit');
       cy.get(pageObjects.submitButton).should('have.attr', 'disabled');
+      cy.get(pageObjects.playAgainButton).should('not.exist');
     });
   });
 

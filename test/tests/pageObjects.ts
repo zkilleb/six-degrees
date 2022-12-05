@@ -33,4 +33,5 @@ export const pageObjects = {
   supportButton: '[data-cy=SupportButton]',
   baconButton: '[data-cy=BaconButton]',
   baconButtonWrapper: '[data-cy=BaconButtonWrapper]',
+  playAgainButton: '[data-cy=PlayAgainButton]',
 };

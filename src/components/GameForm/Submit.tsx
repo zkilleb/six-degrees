@@ -109,17 +109,32 @@ export function Submit({
         </DialogActions>
       </Dialog>
 
-      <Button
-        disabled={!guesses || guesses.length < 1 || submitDisabled}
-        onClick={verifyAnswer}
-        sx={buttonStyle}
-        variant="contained"
-        data-cy="SubmitButton"
-      >
-        Submit {submittedResult && submittedResult.toString()}
-      </Button>
+      {submitDisabled ? (
+        <Button
+          data-cy="PlayAgainButton"
+          onClick={handlePlayAgain}
+          sx={buttonStyle}
+          variant="contained"
+        >
+          Play Again
+        </Button>
+      ) : (
+        <Button
+          disabled={!guesses || guesses.length < 1}
+          onClick={verifyAnswer}
+          sx={buttonStyle}
+          variant="contained"
+          data-cy="SubmitButton"
+        >
+          Submit {submittedResult && submittedResult.toString()}
+        </Button>
+      )}
     </div>
   );
+
+  function handlePlayAgain() {
+    window.location.reload();
+  }
 
   function handleChallenge() {
     if (firstActor && secondActor) {
