@@ -12,3 +12,4 @@ export { EraToggle } from './EraToggle';
 export { Share } from './Share';
 export { Support } from './Support';
 export { FooterAd } from './FooterAd';
+export { BaconToggle } from './BaconToggle';

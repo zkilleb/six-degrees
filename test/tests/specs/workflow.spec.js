@@ -54,131 +54,153 @@ describe('Test User Workflow', () => {
       cy.get(pageObjects.shareModalHeader).should('not.be', 'visible');
     });
 
-    it('Settings Modal Should Open', () => {
-      cy.get(pageObjects.headerSettings).click();
-      cy.get(pageObjects.settingsModalHeader).should('contain', 'Settings');
-      cy.get(pageObjects.eraToggleHeader).should(
-        'contain',
-        'Starting Actor Era',
-      );
-      cy.get(pageObjects.modernButton).should(
-        'have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.bothButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.classicButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.bothButton).click();
-      window.localStorage.setItem('playedBefore', true);
-      cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
-      cy.get(pageObjects.actorName)
-        .eq(0)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...modernActors, ...classicActors].filter(
-            (actor) => {
-              return actor.name === text;
-            },
-          );
-          expect(tempArr).to.have.length(1);
-        });
-      cy.get(pageObjects.actorName)
-        .eq(1)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...modernActors, ...classicActors].filter(
-            (actor) => {
-              return actor.name === text;
-            },
-          );
-          expect(tempArr).to.have.length(1);
-        });
-      cy.get(pageObjects.headerSettings).click();
-      cy.get(pageObjects.bothButton).should(
-        'have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.modernButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.classicButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.classicButton).click();
-      window.localStorage.setItem('playedBefore', true);
-      cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
-      cy.get(pageObjects.actorName)
-        .eq(0)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...modernActors, ...classicActors].filter(
-            (actor) => {
-              return actor.name === text;
-            },
-          );
-          expect(tempArr).to.have.length(1);
-        });
-      cy.get(pageObjects.actorName)
-        .eq(1)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...classicActors].filter((actor) => {
-            return actor.name === text;
+    describe('Test Settings', () => {
+      it('Settings Modal Should Open', () => {
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.settingsModalHeader).should('contain', 'Settings');
+        cy.get(pageObjects.eraToggleHeader).should(
+          'contain',
+          'Starting Actor Era',
+        );
+        cy.get(pageObjects.modernButton).should(
+          'have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.bothButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.classicButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.baconButtonWrapper).should(
+          'contain',
+          '🥓 Bacon Mode',
+        );
+      });
+
+      it('Actor Era Toggle Should Change Era', () => {
+        cy.get(pageObjects.bothButton).click();
+        window.localStorage.setItem('playedBefore', true);
+        cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
+        cy.get(pageObjects.actorName)
+          .eq(0)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...modernActors, ...classicActors].filter(
+              (actor) => {
+                return actor.name === text;
+              },
+            );
+            expect(tempArr).to.have.length(1);
           });
-          expect(tempArr).to.have.length(1);
-        });
-      cy.get(pageObjects.headerSettings).click();
-      cy.get(pageObjects.classicButton).should(
-        'have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.modernButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.bothButton).should(
-        'not.have.css',
-        'background-color',
-        'rgb(68, 85, 102)',
-      );
-      cy.get(pageObjects.modernButton).click();
-      window.localStorage.setItem('playedBefore', true);
-      cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
-      cy.get(pageObjects.actorName)
-        .eq(0)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...modernActors, ...classicActors].filter(
-            (actor) => {
-              return actor.name === text;
-            },
-          );
-          expect(tempArr).to.have.length(1);
-        });
-      cy.get(pageObjects.actorName)
-        .eq(1)
-        .then(($el) => {
-          const text = $el.text();
-          const tempArr = [...modernActors].filter((actor) => {
-            return actor.name === text;
+        cy.get(pageObjects.actorName)
+          .eq(1)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...modernActors, ...classicActors].filter(
+              (actor) => {
+                return actor.name === text;
+              },
+            );
+            expect(tempArr).to.have.length(1);
           });
-          expect(tempArr).to.have.length(1);
-        });
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.bothButton).should(
+          'have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.modernButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.classicButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.classicButton).click();
+        window.localStorage.setItem('playedBefore', true);
+        cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
+        cy.get(pageObjects.actorName)
+          .eq(0)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...modernActors, ...classicActors].filter(
+              (actor) => {
+                return actor.name === text;
+              },
+            );
+            expect(tempArr).to.have.length(1);
+          });
+        cy.get(pageObjects.actorName)
+          .eq(1)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...classicActors].filter((actor) => {
+              return actor.name === text;
+            });
+            expect(tempArr).to.have.length(1);
+          });
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.classicButton).should(
+          'have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.modernButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.bothButton).should(
+          'not.have.css',
+          'background-color',
+          'rgb(68, 85, 102)',
+        );
+        cy.get(pageObjects.modernButton).click();
+        window.localStorage.setItem('playedBefore', true);
+        cy.get(pageObjects.settingsModalHeader).should('not.be', 'visible');
+        cy.get(pageObjects.actorName)
+          .eq(0)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...modernActors, ...classicActors].filter(
+              (actor) => {
+                return actor.name === text;
+              },
+            );
+            expect(tempArr).to.have.length(1);
+          });
+        cy.get(pageObjects.actorName)
+          .eq(1)
+          .then(($el) => {
+            const text = $el.text();
+            const tempArr = [...modernActors].filter((actor) => {
+              return actor.name === text;
+            });
+            expect(tempArr).to.have.length(1);
+          });
+      });
+
+      it('Bacon Mode Toggle Should Set Bacon Mode', () => {
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.baconButton).click();
+        window.localStorage.setItem('playedBefore', true);
+        cy.get(pageObjects.actorName)
+          .eq(0)
+          .should('not.contain', 'Kevin Bacon');
+        cy.get(pageObjects.actorName).eq(1).should('contain', 'Kevin Bacon');
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.baconButton).click();
+        window.localStorage.setItem('playedBefore', true);
+      });
     });
 
     it('Help Modal Should Open', () => {

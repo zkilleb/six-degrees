@@ -5,6 +5,7 @@ import { colors } from '../constants';
 
 export function EraToggle() {
   const [era, setEra] = React.useState(handleLocalStorage);
+
   return (
     <div>
       <div style={headerStyle} data-cy="EraToggleHeader">

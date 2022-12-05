@@ -39,6 +39,7 @@ export function GameForm() {
     } else {
       setSearchParams(undefined);
       const saved = localStorage.getItem('era');
+      const baconMode = localStorage.getItem('baconMode');
       let tempActorArr: TMDBActor[] = [];
       if (saved && saved === 'classic') {
         tempActorArr = [...classicActors];
@@ -47,13 +48,20 @@ export function GameForm() {
       } else if (!saved || saved === 'modern') {
         tempActorArr = [...modernActors];
       }
-      const firstRand = Math.floor(Math.random() * tempActorArr.length);
+      let firstRand = Math.floor(Math.random() * tempActorArr.length);
       let secondRand = Math.floor(Math.random() * tempActorArr.length);
+      while (baconMode === 'true' && tempActorArr[firstRand].name === 'Kevin Bacon') {
+        firstRand = Math.floor(Math.random() * tempActorArr.length);
+      }
       while (firstRand === secondRand) {
         secondRand = Math.floor(Math.random() * tempActorArr.length);
       }
       setFirstActor(tempActorArr[firstRand]);
-      setSecondActor(tempActorArr[secondRand]);
+      setSecondActor(
+        baconMode === 'true'
+          ? modernActors.find((actor) => actor.name === 'Kevin Bacon')
+          : tempActorArr[secondRand],
+      );
     }
   }, [searchParams, setSearchParams]);
 
