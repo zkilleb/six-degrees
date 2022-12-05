@@ -31,4 +31,6 @@ export const pageObjects = {
   supportModalHeader: '[data-cy=SupportHeader]',
   supportClose: '[data-cy=SupportClose]',
   supportButton: '[data-cy=SupportButton]',
+  baconButton: '[data-cy=BaconButton]',
+  baconButtonWrapper: '[data-cy=BaconButtonWrapper]',
 };

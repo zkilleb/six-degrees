@@ -2,7 +2,7 @@ import { pageObjects } from '../pageObjects';
 
 describe('Test App on Mobile View', () => {
   before(() => {
-    window.localStorage.setItem('playedBefore', true)
+    window.localStorage.setItem('playedBefore', true);
     cy.visit('/');
   });
 

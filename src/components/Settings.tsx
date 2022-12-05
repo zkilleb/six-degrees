@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { BaconToggle } from './BaconToggle';
 import { EraToggle } from './EraToggle';
 
 export function Settings({
@@ -31,6 +32,7 @@ export function Settings({
       <DialogTitle data-cy="SettingsModalHeader">Settings</DialogTitle>
       <DialogContent>
         <EraToggle />
+        <BaconToggle />
       </DialogContent>
       <DialogActions>
         <Button
