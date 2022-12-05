@@ -9,7 +9,10 @@ import { Tooltip } from '@mui/material';
 import { HowToPlay, Settings, Share, Support } from '../components';
 
 export function Header() {
-  const [modalOpen, setModalOpen] = React.useState(false);
+  const [playedBefore] = React.useState(localStorage.getItem('playedBefore'));
+  const [modalOpen, setModalOpen] = React.useState(
+    playedBefore !== 'true' ? true : false,
+  );
   const [settingsModalOpen, setSettingsModalOpen] = React.useState(false);
   const [shareModalOpen, setShareModalOpen] = React.useState(false);
   const [supportModalOpen, setSupportModalOpen] = React.useState(false);
@@ -80,6 +83,7 @@ export function Header() {
   }
 
   function handleClick() {
+    localStorage.setItem('playedBefore', 'true');
     setModalOpen(!modalOpen);
   }
 }

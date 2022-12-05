@@ -8,6 +8,10 @@ describe('Test Challenge Query Params', () => {
     return false;
   });
 
+  beforeEach(() => {
+    window.localStorage.setItem('playedBefore', true);
+  });
+
   it('Missing First Actor Param Defaults to Random', () => {
     cy.visit(`?secondActor=${encodeURI(secondActor)}`);
     cy.get(pageObjects.actorName).eq(1).should('not.contain', secondActor);
