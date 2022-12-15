@@ -36,7 +36,11 @@ export function EraToggle() {
   ) {
     setEra(newAlignment);
     localStorage.setItem('era', newAlignment);
-    window.location.reload();
+    window.location.replace(
+      `${window.location.protocol}//${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    );
   }
 
   function handleLocalStorage() {
