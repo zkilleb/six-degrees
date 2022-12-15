@@ -178,7 +178,7 @@ export const classicActors = [
   { name: 'Kirk Douglas', id: 2090 },
   { name: 'Lauren Bacall', id: 7570 },
   { name: 'Laurence Olivier', id: 3359 },
-  { name: 'Marilyn Monroe', id: 239 },
+  { name: 'Marilyn Monroe', id: 3149 },
   { name: 'Marlene Dietrich', id: 2896 },
   { name: 'Marlon Brando', id: 3084 },
   { name: 'Mickey Rooney', id: 1937 },

@@ -34,8 +34,8 @@ export function HowToPlay({
           actor to start with and an actor to end with. Your goal is to try to
           connect the 2 by using movies that share an actor. Depending on the
           actors, a connection could be made in as little as 1 film but the
-          maximum amount of movies is 6. Making the connection in as few films as
-          possible is best. Once you think you have the correct answer, click
+          maximum amount of movies is 6. Making the connection in as few films
+          as possible is best. Once you think you have the correct answer, click
           Submit to validate it.
         </span>
         <br />

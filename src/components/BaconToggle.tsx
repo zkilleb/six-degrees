@@ -26,7 +26,11 @@ export function BaconToggle() {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setChecked(event.target.checked.toString());
     localStorage.setItem('baconMode', event.target.checked.toString());
-    window.location.reload();
+    window.location.replace(
+      `${window.location.protocol}//${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    );
   }
 
   function handleLocalStorage() {

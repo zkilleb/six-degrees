@@ -7,7 +7,9 @@ import {
   DialogActions,
   Snackbar,
   Alert,
+  IconButton,
 } from '@mui/material';
+import { Close } from '@mui/icons-material';
 import { getMovieById } from '../../api';
 import { AutoComplete, TMDBActor } from '../../classes';
 import { Share, Group } from '@mui/icons-material';
@@ -67,7 +69,20 @@ export function Submit({
           },
         }}
       >
-        <DialogTitle>{submittedResult ? 'Correct' : 'Incorrect'}</DialogTitle>
+        <DialogTitle>
+          {submittedResult ? 'Correct' : 'Incorrect'}
+          <IconButton
+            onClick={handleModalClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: 'white',
+            }}
+          >
+            <Close />
+          </IconButton>
+        </DialogTitle>
 
         <DialogContent sx={contentStyle}>
           <div>{submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}</div>
@@ -91,13 +106,6 @@ export function Submit({
             onClick={handleChallenge}
           >
             Challenge <Group />
-          </Button>
-          <Button
-            sx={buttonStyle}
-            variant="contained"
-            onClick={handleModalClose}
-          >
-            Close
           </Button>
           <Button
             sx={buttonStyle}
@@ -133,7 +141,11 @@ export function Submit({
   );
 
   function handlePlayAgain() {
-    window.location.reload();
+    window.location.replace(
+      `${window.location.protocol}//${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    );
   }
 
   function handleChallenge() {
@@ -250,7 +262,11 @@ export function Submit({
   }
 
   function handleReload() {
-    window.location.reload();
+    window.location.replace(
+      `${window.location.protocol}//${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    );
   }
 
   function handleModalClose() {
