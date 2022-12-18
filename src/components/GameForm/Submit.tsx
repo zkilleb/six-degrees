@@ -293,6 +293,7 @@ const buttonStyle = {
 
 const contentStyle = {
   alignItems: 'center',
+  textAlign: 'center',
 };
 
 const buttonWrapper = {
