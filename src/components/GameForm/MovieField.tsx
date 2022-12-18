@@ -31,6 +31,11 @@ export function MovieField({
   return (
     <div>
       <Autocomplete
+        key={
+          guesses && guesses[guesses.length - 1]
+            ? guesses[guesses.length - 1].id
+            : 'empty'
+        }
         disablePortal
         disabled={submitDisabled}
         onChange={(e, v) => handleClick(v)}
@@ -39,6 +44,7 @@ export function MovieField({
         renderInput={(params) => (
           <CssTextField
             {...params}
+            autoFocus={true}
             autoComplete="off"
             data-cy="MovieField"
             placeholder="Guess a movie..."
@@ -82,7 +88,10 @@ export function MovieField({
   }
 
   function handleAdd() {
-    if (result) callback(result);
+    if (result) {
+      callback(result);
+      setQuery(undefined)
+    }
   }
 }
 
