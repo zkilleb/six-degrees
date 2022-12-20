@@ -98,7 +98,7 @@ export function MovieField({
 function transformValue(arr: []) {
   return arr.map((element: any) => {
     return {
-      label: `${element.original_title} ${
+      label: `${element.title} ${
         element.release_date
           ? '(' + element.release_date.substring(0, 4) + ')'
           : ''
