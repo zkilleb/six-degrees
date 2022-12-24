@@ -118,11 +118,12 @@ const headerStyle = {
 const textWrapperStyle = {
   color: 'white',
   textDecoration: 'none',
-  marginLeft: 'auto',
-  marginRight: '15%',
   display: 'flex',
+  width: '100%',
+  justifyContent: 'center',
 };
 
 const settingsStyle = {
-  paddingRight: '10%',
+  paddingRight: '1%',
+  paddingLeft: '1%'
 };
