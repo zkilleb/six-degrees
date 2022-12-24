@@ -90,7 +90,7 @@ export function MovieField({
   function handleAdd() {
     if (result) {
       callback(result);
-      setQuery(undefined)
+      setQuery(undefined);
     }
   }
 }

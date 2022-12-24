@@ -17,6 +17,28 @@ describe('Test User Workflow', () => {
     });
   });
 
+  describe('Test stats Cookie', () => {
+    before(() => {
+      window.localStorage.setItem(
+        'stats',
+        '{"gamesPlayed":3,"wins":3,"longestStreak":7,"fastestTime":32310}',
+      );
+    });
+
+    it('Stat Modal Should Display Stats From Cookie', () => {
+      cy.get(pageObjects.headerStats).click();
+      cy.get(pageObjects.statModalBody).should('contain', 'Games Played: 3');
+      cy.get(pageObjects.statModalBody).should('contain', 'Wins: 3');
+      cy.get(pageObjects.statModalBody).should('contain', 'Winning %: 100%');
+      cy.get(pageObjects.statModalBody).should('contain', 'Longest Streak: 7');
+      cy.get(pageObjects.statModalBody).should(
+        'contain',
+        'Fastest Win: 0 min(s) 32 sec(s)',
+      );
+      cy.get(pageObjects.statClose).click();
+    });
+  });
+
   describe('Test Header Components', () => {
     before(() => {
       window.localStorage.setItem('playedBefore', true);
@@ -28,6 +50,17 @@ describe('Test User Workflow', () => {
 
     it('Title Banner Should Be Visible', () => {
       cy.get(pageObjects.titleBanner).should('be.visible');
+    });
+
+    it('Stat Modal Should Open', () => {
+      cy.get(pageObjects.headerStats).click();
+      cy.get(pageObjects.statModalHeader).should('contain', 'Statistics');
+      cy.get(pageObjects.statModalBody).should(
+        'contain',
+        'No Stats At This Time',
+      );
+      cy.get(pageObjects.statClose).click();
+      cy.get(pageObjects.statModalHeader).should('not.be', 'visible');
     });
 
     it('Support Modal Should Open', () => {
