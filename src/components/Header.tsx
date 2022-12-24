@@ -78,7 +78,7 @@ export function Header() {
           </div>
         </Tooltip>
 
-        <Tooltip title="Help" data-cy="HeaderHelp">
+        <Tooltip title="Help" style={settingsStyle}  data-cy="HeaderHelp">
           <Help onClick={handleClick} />
         </Tooltip>
       </div>
@@ -124,5 +124,5 @@ const textWrapperStyle = {
 };
 
 const settingsStyle = {
-  paddingRight: '15%',
+  paddingRight: '10%',
 };
