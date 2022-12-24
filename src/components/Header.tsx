@@ -4,9 +4,10 @@ import {
   Settings as SettingsIcon,
   Share as ShareIcon,
   Coffee,
+  BarChart,
 } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
-import { HowToPlay, Settings, Share, Support } from '../components';
+import { HowToPlay, Settings, Share, Support, Stats } from '../components';
 
 export function Header() {
   const [playedBefore] = React.useState(localStorage.getItem('playedBefore'));
@@ -16,9 +17,17 @@ export function Header() {
   const [settingsModalOpen, setSettingsModalOpen] = React.useState(false);
   const [shareModalOpen, setShareModalOpen] = React.useState(false);
   const [supportModalOpen, setSupportModalOpen] = React.useState(false);
+  const [statModalOpen, setStatModalOpen] = React.useState(false);
 
   return (
     <div style={headerStyle}>
+      {statModalOpen && (
+        <Stats
+          statModalOpen={statModalOpen}
+          handleStatClick={handleStatClick}
+        />
+      )}
+
       {supportModalOpen && (
         <Support
           supportModalOpen={supportModalOpen}
@@ -45,6 +54,12 @@ export function Header() {
       )}
 
       <div style={textWrapperStyle}>
+        <Tooltip title="Stats">
+          <div style={settingsStyle} data-cy="HeaderStats">
+            <BarChart onClick={handleStatClick} />
+          </div>
+        </Tooltip>
+
         <Tooltip title="Support Us">
           <div style={settingsStyle} data-cy="HeaderSupport">
             <Coffee onClick={handleSupportClick} />
@@ -85,6 +100,10 @@ export function Header() {
   function handleClick() {
     localStorage.setItem('playedBefore', 'true');
     setModalOpen(!modalOpen);
+  }
+
+  function handleStatClick() {
+    setStatModalOpen(!statModalOpen);
   }
 }
 

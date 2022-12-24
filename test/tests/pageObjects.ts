@@ -34,4 +34,8 @@ export const pageObjects = {
   baconButton: '[data-cy=BaconButton]',
   baconButtonWrapper: '[data-cy=BaconButtonWrapper]',
   playAgainButton: '[data-cy=PlayAgainButton]',
+  headerStats: '[data-cy=HeaderStats]',
+  statModalHeader: '[data-cy=StatModalHeader]',
+  statModalBody: '[data-cy=StatModalBody]',
+  statClose: '[data-cy=StatModalClose]',
 };

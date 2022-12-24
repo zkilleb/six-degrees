@@ -9,10 +9,10 @@ import {
   Alert,
   IconButton,
 } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import { Close, Share, Group } from '@mui/icons-material';
 import { getMovieById } from '../../api';
-import { AutoComplete, TMDBActor } from '../../classes';
-import { Share, Group } from '@mui/icons-material';
+import { AutoComplete, TMDBActor, Stat } from '../../classes';
+import { parseStats, formatTimer } from '../../util';
 
 export function Submit({
   guesses,
@@ -34,6 +34,8 @@ export function Submit({
   const [streak, setStreak] = React.useState<string | null>(
     localStorage.getItem('streak'),
   );
+  const [stats] = React.useState<string | null>(localStorage.getItem('stats'));
+  const [parsedStats] = React.useState<Stat | undefined>(parseStats(stats));
 
   React.useEffect(() => {
     let interval: any;
@@ -244,6 +246,20 @@ export function Submit({
     setSubmittedResult(validationFlag);
     setModalOpen(true);
     handleStreak(validationFlag);
+    handleStatUpdate(validationFlag);
+  }
+
+  function handleStatUpdate(correct: boolean) {
+    let tempStats = parsedStats ? parsedStats : new Stat();
+    if (correct && streak && tempStats.longestStreak < parseInt(streak) + 1) {
+      tempStats.longestStreak = parseInt(streak) + 1;
+    }
+    if (!tempStats.fastestTime || tempStats.fastestTime > time) {
+      tempStats.fastestTime = time;
+    }
+    tempStats.gamesPlayed++;
+    if (correct) tempStats.wins++;
+    localStorage.setItem('stats', JSON.stringify(tempStats));
   }
 
   function handleStreak(correct: boolean) {
@@ -273,13 +289,6 @@ export function Submit({
     setModalOpen(false);
     setSubmitDisabled(true);
     submitCallback();
-  }
-
-  function formatTimer(time: number) {
-    const totalSeconds = Math.floor(time / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds - minutes * 60;
-    return `${minutes} min(s) ${seconds} sec(s)`;
   }
 
   function handleClose() {
