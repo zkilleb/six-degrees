@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Button,
   Dialog,
@@ -36,6 +37,7 @@ export function Submit({
   );
   const [stats] = React.useState<string | null>(localStorage.getItem('stats'));
   const [parsedStats] = React.useState<Stat | undefined>(parseStats(stats));
+  const [searchParams] = useSearchParams();
 
   React.useEffect(() => {
     let interval: any;
@@ -87,22 +89,31 @@ export function Submit({
         </DialogTitle>
 
         <DialogContent sx={contentStyle}>
-          <div>{submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}</div>
+          {!searchParams.get('time') && (
+            <div>
+              {submittedResult ? 'Congrats!' : 'Better Luck Next Time!'}
+            </div>
+          )}
           <div>{submittedResult ? `Current Streak: ${streak}` : ''}</div>
           <div>{submittedResult ? formatTimer(time) : ''}</div>
+          {searchParams.get('time') && (
+            <div>
+              {time < parseInt(searchParams.get('time') as string)
+                ? `Congrats! Your time was better than the challenged time of ${formatTimer(
+                    parseInt(searchParams.get('time') as string),
+                  )}.`
+                : `Sorry, your time was not better than the challenged time of ${formatTimer(
+                    parseInt(searchParams.get('time') as string),
+                  )}.`}
+            </div>
+          )}
         </DialogContent>
 
         <DialogActions sx={buttonWrapper}>
-          <Button
-            disabled={window.location.protocol === 'http:'}
-            sx={buttonStyle}
-            variant="contained"
-            onClick={handleShare}
-          >
+          <Button sx={buttonStyle} variant="contained" onClick={handleShare}>
             Share <Share />
           </Button>
           <Button
-            disabled={window.location.protocol === 'http:'}
             sx={buttonStyle}
             variant="contained"
             onClick={handleChallenge}
@@ -156,7 +167,9 @@ export function Submit({
         window.location.port ? `:${window.location.port}` : ''
       }?firstActor=${encodeURIComponent(
         firstActor.name,
-      )}&secondActor=${encodeURIComponent(secondActor.name)}`;
+      )}&secondActor=${encodeURIComponent(secondActor.name)}${
+        submittedResult ? `&time=${time}` : ''
+      }`;
       navigator.clipboard.writeText(writeValue);
       setCopyOpen(true);
     }
