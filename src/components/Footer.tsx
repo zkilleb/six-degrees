@@ -1,10 +1,10 @@
 import { CSSProperties } from 'react';
-import { FooterAd } from '.';
+// import { FooterAd } from '.';
 
 export function Footer() {
   return (
     <footer style={footerStyle} onClick={handleClick} data-cy="Footer">
-      <FooterAd />
+      {/* <FooterAd /> */}
       <img style={imageStyle} src="tmdb-logo.svg" alt="TMDB Logo" />
       <div>
         This product uses the TMDB API but is not endorsed or certified by TMDB.
