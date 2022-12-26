@@ -40,7 +40,13 @@ export function Stats({
             <div>Games Played: {parsedStats.gamesPlayed}</div>
             <div>Wins: {parsedStats.wins}</div>
             <div>
-              Winning %: {(parsedStats.wins / parsedStats.gamesPlayed) * 100}%
+              Winning %:{' '}
+              {!((parsedStats.wins / parsedStats.gamesPlayed) * 100).toString().includes('.')
+                ? (parsedStats.wins / parsedStats.gamesPlayed) * 100
+                : ((parsedStats.wins / parsedStats.gamesPlayed) * 100).toFixed(
+                    2,
+                  )}
+              %
             </div>
             <div>Longest Streak: {parsedStats.longestStreak}</div>
             {parsedStats.fastestTime ? (

@@ -37,6 +37,17 @@ describe('Test User Workflow', () => {
       );
       cy.get(pageObjects.statClose).click();
     });
+
+    it('Stat Modal Should Display 2 Decimal Places', () => {
+      window.localStorage.removeItem('stats');
+      window.localStorage.setItem(
+        'stats',
+        '{"gamesPlayed":7,"wins":3,"longestStreak":7,"fastestTime":32310}',
+      );
+      cy.get(pageObjects.headerStats).click();
+      cy.get(pageObjects.statModalBody).should('contain', 'Winning %: 42.86%');
+      cy.get(pageObjects.statClose).click();
+    });
   });
 
   describe('Test Header Components', () => {
