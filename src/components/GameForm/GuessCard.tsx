@@ -68,7 +68,7 @@ const cardStyle: CSSProperties = {
 
 const imageStyle = {
   width: '1.95em',
-  height: '3.28em',
+  height: '3.3em',
   borderRadius: 6,
   display: 'block',
 };

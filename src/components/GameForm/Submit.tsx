@@ -123,6 +123,13 @@ export function Submit({
           <Button
             sx={buttonStyle}
             variant="contained"
+            onClick={() => handleRetry()}
+          >
+            Retry
+          </Button>
+          <Button
+            sx={buttonStyle}
+            variant="contained"
             onClick={() => handleReload()}
           >
             Play Again
@@ -131,14 +138,24 @@ export function Submit({
       </Dialog>
 
       {submitDisabled ? (
-        <Button
-          data-cy="PlayAgainButton"
-          onClick={handlePlayAgain}
-          sx={buttonStyle}
-          variant="contained"
-        >
-          Play Again
-        </Button>
+        <>
+          <Button
+            data-cy="RetryButton"
+            onClick={handleRetry}
+            sx={retryStyle}
+            variant="contained"
+          >
+            Retry
+          </Button>
+          <Button
+            data-cy="PlayAgainButton"
+            onClick={handlePlayAgain}
+            sx={buttonStyle}
+            variant="contained"
+          >
+            Play Again
+          </Button>
+        </>
       ) : (
         <Button
           disabled={!guesses || guesses.length < 1}
@@ -152,6 +169,21 @@ export function Submit({
       )}
     </div>
   );
+
+  function handleRetry() {
+    if (searchParams.get('firstActor')) window.location.reload();
+    else {
+      if (firstActor && secondActor) {
+        window.location.replace(
+          `${window.location.protocol}//${window.location.hostname}${
+            window.location.port ? `:${window.location.port}` : ''
+          }?firstActor=${encodeURIComponent(
+            firstActor.name,
+          )}&secondActor=${encodeURIComponent(secondActor.name)}`,
+        );
+      }
+    }
+  }
 
   function handlePlayAgain() {
     window.location.replace(
@@ -322,4 +354,9 @@ const buttonWrapper = {
   justifyContent: 'center',
   display: 'flex',
   flexWrap: 'wrap',
+};
+
+const retryStyle = {
+  ...buttonStyle,
+  marginRight: '1%',
 };

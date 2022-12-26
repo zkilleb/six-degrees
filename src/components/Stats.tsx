@@ -41,7 +41,9 @@ export function Stats({
             <div>Wins: {parsedStats.wins}</div>
             <div>
               Winning %:{' '}
-              {!((parsedStats.wins / parsedStats.gamesPlayed) * 100).toString().includes('.')
+              {!((parsedStats.wins / parsedStats.gamesPlayed) * 100)
+                .toString()
+                .includes('.')
                 ? (parsedStats.wins / parsedStats.gamesPlayed) * 100
                 : ((parsedStats.wins / parsedStats.gamesPlayed) * 100).toFixed(
                     2,
