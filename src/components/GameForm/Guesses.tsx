@@ -68,6 +68,7 @@ export function Guesses({
               deleteCallback={deleteCallback}
               isLast={calculateIsLast(guestArr, index)}
               submitDisabled={submitDisabled}
+              id={guess.id}
             />
           );
         })}
