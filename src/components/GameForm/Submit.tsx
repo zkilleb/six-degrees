@@ -214,8 +214,8 @@ export function Submit({
       }?firstActor=${encodeURIComponent(
         firstActor.name,
       )}&secondActor=${encodeURIComponent(secondActor.name)}${
-        submittedResult ? `&time=${time}` : ''
-      }${localStorage.getItem('hints') === 'true' ? '&hints=true' : ''}`;
+        submittedResult && `&time=${time}`
+      }${localStorage.getItem('hints') === 'true' && '&hints=true'}`;
       navigator.clipboard.writeText(writeValue);
       setCopyOpen(true);
     }

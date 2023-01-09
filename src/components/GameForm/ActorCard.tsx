@@ -51,7 +51,11 @@ export function ActorCard({
           {hints === 'true' && (
             <div>
               <Tooltip title="Hints">
-                <Help data-cy="HintIcon" sx={hintButtonStyle} onClick={showHints} />
+                <Help
+                  data-cy="HintIcon"
+                  sx={hintButtonStyle}
+                  onClick={showHints}
+                />
               </Tooltip>
             </div>
           )}

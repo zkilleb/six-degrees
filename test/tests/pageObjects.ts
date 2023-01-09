@@ -43,5 +43,5 @@ export const pageObjects = {
   hintIcon: '[data-cy=HintIcon]',
   hintHeader: '[data-cy=HintsHeader]',
   hintsContent: '[data-cy=HintsContent]',
-  hintsClose: '[data-cy=HintsClose]'
+  hintsClose: '[data-cy=HintsClose]',
 };

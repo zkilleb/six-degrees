@@ -15,3 +15,4 @@ export { Stats } from './Stats';
 export { FooterAd } from './FooterAd';
 export { BaconToggle } from './BaconToggle';
 export { Hints } from './Hints';
+export { MovieHints } from './MovieHints';
