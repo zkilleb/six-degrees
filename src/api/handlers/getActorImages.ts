@@ -9,6 +9,6 @@ export async function getActorImages(id: number) {
         return res.data.profiles[0].file_path;
       });
   } catch (e: any) {
-    console.log(e.message);
+    console.log('Request to get image failed');
   }
 }

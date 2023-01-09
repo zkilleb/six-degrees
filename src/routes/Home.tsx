@@ -6,6 +6,7 @@ export function Home() {
   return (
     <div>
       <img
+        onClick={handleBannerClick}
         data-cy="TitleBanner"
         style={headerStyle}
         src="banner-logo.png"
@@ -16,6 +17,14 @@ export function Home() {
       </Paper>
     </div>
   );
+
+  function handleBannerClick() {
+    window.location.replace(
+      `${window.location.protocol}//${window.location.hostname}${
+        window.location.port ? `:${window.location.port}` : ''
+      }`,
+    );
+  }
 }
 
 const paperStyle = {

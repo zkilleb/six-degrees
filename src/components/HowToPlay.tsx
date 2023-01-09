@@ -59,7 +59,9 @@ export function HowToPlay({
         <br />
         <span>
           Tip: If you are looking for an extra challenge, try changing your
-          starting actor era or enabling Bacon Mode in the settings.
+          starting actor era or enabling Bacon Mode in the settings. If it a bit
+          too difficult, you can also turn on hints to get some suggested
+          starting movies.
         </span>
       </DialogContent>
       <DialogActions>

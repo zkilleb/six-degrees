@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { BaconToggle } from './BaconToggle';
 import { EraToggle } from './EraToggle';
+import { HintToggle } from './HintToggle';
 
 export function Settings({
   settingsModalOpen,
@@ -33,6 +34,7 @@ export function Settings({
       <DialogContent>
         <EraToggle />
         <BaconToggle />
+        <HintToggle />
       </DialogContent>
       <DialogActions>
         <Button
