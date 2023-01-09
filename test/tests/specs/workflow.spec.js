@@ -125,6 +125,7 @@ describe('Test User Workflow', () => {
           'contain',
           '🥓 Bacon Mode',
         );
+        cy.get(pageObjects.hintsButtonWrapper).should('contain', '❓ Hints');
       });
 
       it('Actor Era Toggle Should Change Era', () => {
@@ -243,6 +244,28 @@ describe('Test User Workflow', () => {
         cy.get(pageObjects.actorName).eq(1).should('contain', 'Kevin Bacon');
         cy.get(pageObjects.headerSettings).click();
         cy.get(pageObjects.baconButton).click();
+        window.localStorage.setItem('playedBefore', true);
+      });
+
+      it('Hints Toggle Should Enable Hints', () => {
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.hintButton).click();
+        window.localStorage.setItem('playedBefore', true);
+        cy.get(pageObjects.hintIcon).eq(0).should('exist');
+        cy.get(pageObjects.hintIcon).eq(0).click();
+        cy.get(pageObjects.hintHeader).should('contain', 'Popular Credits for');
+        cy.get(pageObjects.hintsContent).should('be.visible');
+        cy.get(pageObjects.hintsClose).click();
+        cy.get(pageObjects.hintsContent).should('not.exist');
+        cy.get(pageObjects.hintIcon).eq(1).should('exist');
+        cy.get(pageObjects.hintIcon).eq(1).click();
+        cy.get(pageObjects.hintHeader).should('contain', 'Popular Credits for');
+        cy.get(pageObjects.hintsContent).should('be.visible');
+        cy.get(pageObjects.hintsClose).click();
+        cy.get(pageObjects.hintsContent).should('not.exist');
+        cy.get(pageObjects.headerSettings).click();
+        cy.get(pageObjects.hintButton).click();
+        cy.get(pageObjects.hintIcon).should('not.exist');
         window.localStorage.setItem('playedBefore', true);
       });
     });

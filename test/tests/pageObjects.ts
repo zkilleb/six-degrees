@@ -38,4 +38,10 @@ export const pageObjects = {
   statModalHeader: '[data-cy=StatModalHeader]',
   statModalBody: '[data-cy=StatModalBody]',
   statClose: '[data-cy=StatModalClose]',
+  hintsButtonWrapper: '[data-cy=HintButtonWrapper]',
+  hintButton: '[data-cy=HintButton]',
+  hintIcon: '[data-cy=HintIcon]',
+  hintHeader: '[data-cy=HintsHeader]',
+  hintsContent: '[data-cy=HintsContent]',
+  hintsClose: '[data-cy=HintsClose]'
 };

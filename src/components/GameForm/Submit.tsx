@@ -36,6 +36,7 @@ export function Submit({
     localStorage.getItem('streak'),
   );
   const [stats] = React.useState<string | null>(localStorage.getItem('stats'));
+  const [hints] = React.useState<string | null>(localStorage.getItem('hints'));
   const [parsedStats] = React.useState<Stat | undefined>(parseStats(stats));
   const [searchParams] = useSearchParams();
 
@@ -107,6 +108,19 @@ export function Submit({
                   )}.`}
             </div>
           )}
+          {submittedResult &&
+            searchParams.get('hints') &&
+            (hints === 'false' || !hints) && (
+              <div>Your challenger had hints enabled but you did not</div>
+            )}
+          {submittedResult && searchParams.get('hints') && hints === 'true' && (
+            <div>Both you and your chanllenger had hints enabled</div>
+          )}
+          {submittedResult &&
+            !searchParams.get('hints') &&
+            hints === 'true' && (
+              <div>You had hints enabled but your challenger did not</div>
+            )}
         </DialogContent>
 
         <DialogActions sx={buttonWrapper}>
@@ -201,7 +215,7 @@ export function Submit({
         firstActor.name,
       )}&secondActor=${encodeURIComponent(secondActor.name)}${
         submittedResult ? `&time=${time}` : ''
-      }`;
+      }${localStorage.getItem('hints') === 'true' ? '&hints=true' : ''}`;
       navigator.clipboard.writeText(writeValue);
       setCopyOpen(true);
     }
