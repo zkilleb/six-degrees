@@ -109,12 +109,16 @@ const imageStyle = {
 
 const iconStyle = {
   color: '#ff4d4d',
+  backgroundColor: 'white',
+  borderRadius: 10,
   position: 'absolute',
   top: 0,
   right: 0,
 };
 
 const helpStyle = {
+  backgroundColor: '#1976d2',
+  borderRadius: 10,
   color: 'white',
   position: 'absolute',
   top: 0,
@@ -123,6 +127,8 @@ const helpStyle = {
 
 const disabledIconStyle = {
   color: '#C5C5C5',
+  backgroundColor: 'white',
+  borderRadius: 10,
   position: 'absolute',
   top: 0,
   right: 0,

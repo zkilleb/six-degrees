@@ -45,10 +45,9 @@ export function ActorCard({
 
       <div style={actorStyle} data-cy="ActorCard">
         <div style={headerStyle}>{to ? 'To' : 'Connect'}</div>
+        <div style={wrapperStyle}>
         <img style={imageStyle} alt={name} src={imagePath} />
-        <div style={subHeaderStyle} data-cy="ActorName">
-          {name}
-          {hints === 'true' && (
+        {hints === 'true' && (
             <div>
               <Tooltip title="Hints">
                 <Help
@@ -59,6 +58,20 @@ export function ActorCard({
               </Tooltip>
             </div>
           )}
+          </div>
+        <div style={subHeaderStyle} data-cy="ActorName">
+          {name}
+          {/* {hints === 'true' && (
+            <div>
+              <Tooltip title="Hints">
+                <Help
+                  data-cy="HintIcon"
+                  sx={hintButtonStyle}
+                  onClick={showHints}
+                />
+              </Tooltip>
+            </div>
+          )} */}
         </div>
       </div>
     </>
@@ -94,4 +107,15 @@ const subHeaderStyle = {
 
 const hintButtonStyle = {
   fontSize: 20,
+  color: 'white',
+  backgroundColor: '#1976d2',
+  borderRadius: 10,
+  position: 'absolute',
+  top: 5,
+  left: 5,
+};
+
+const wrapperStyle: CSSProperties = {
+  position: 'relative',
+  display: 'block',
 };
