@@ -46,8 +46,8 @@ export function ActorCard({
       <div style={actorStyle} data-cy="ActorCard">
         <div style={headerStyle}>{to ? 'To' : 'Connect'}</div>
         <div style={wrapperStyle}>
-        <img style={imageStyle} alt={name} src={imagePath} />
-        {hints === 'true' && (
+          <img style={imageStyle} alt={name} src={imagePath} />
+          {hints === 'true' && (
             <div>
               <Tooltip title="Hints">
                 <Help
@@ -58,7 +58,7 @@ export function ActorCard({
               </Tooltip>
             </div>
           )}
-          </div>
+        </div>
         <div style={subHeaderStyle} data-cy="ActorName">
           {name}
         </div>
