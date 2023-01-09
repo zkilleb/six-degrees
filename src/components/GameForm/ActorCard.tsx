@@ -61,17 +61,6 @@ export function ActorCard({
           </div>
         <div style={subHeaderStyle} data-cy="ActorName">
           {name}
-          {/* {hints === 'true' && (
-            <div>
-              <Tooltip title="Hints">
-                <Help
-                  data-cy="HintIcon"
-                  sx={hintButtonStyle}
-                  onClick={showHints}
-                />
-              </Tooltip>
-            </div>
-          )} */}
         </div>
       </div>
     </>
