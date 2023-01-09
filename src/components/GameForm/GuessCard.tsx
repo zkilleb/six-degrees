@@ -127,8 +127,6 @@ const helpStyle = {
 
 const disabledIconStyle = {
   color: '#C5C5C5',
-  backgroundColor: 'white',
-  borderRadius: 10,
   position: 'absolute',
   top: 0,
   right: 0,
