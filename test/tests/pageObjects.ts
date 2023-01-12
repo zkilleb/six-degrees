@@ -44,5 +44,5 @@ export const pageObjects = {
   hintHeader: '[data-cy=HintsHeader]',
   hintsContent: '[data-cy=HintsContent]',
   hintsClose: '[data-cy=HintsClose]',
-  notFoundSubHeader: '[data-cy=NotFoundSubHeader]'
+  notFoundSubHeader: '[data-cy=NotFoundSubHeader]',
 };
