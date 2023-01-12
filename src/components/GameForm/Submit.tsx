@@ -224,7 +224,9 @@ export function Submit({
   function handleShare() {
     let writeValue = `🥓Six Degrees of Kevin Bacon 🥓\n⭐${
       firstActor?.name
-    } ➡️ ${secondActor?.name}⭐\n${parseGuesses()}\n⏱️${formatTimer(time)}`;
+    } ➡️ ${secondActor?.name}⭐\n${parseGuesses()}\n⏱️${formatTimer(
+      time,
+    )}\nsixdob.com`;
     navigator.clipboard.writeText(writeValue);
     setCopyOpen(true);
   }

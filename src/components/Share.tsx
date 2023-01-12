@@ -38,7 +38,7 @@ export function Share({
         <div style={contentStyle}>
           <TwitterShareButton
             data-cy="TwitterShareButton"
-            url="facebook.com"
+            url="sixdob.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
             <Button variant="contained">
@@ -49,7 +49,7 @@ export function Share({
         <div style={contentStyle}>
           <FacebookShareButton
             data-cy="FacebookShareButton"
-            url="facebook.com"
+            url="sixdob.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
             <Button variant="contained">
@@ -61,7 +61,7 @@ export function Share({
         <div style={contentStyle}>
           <RedditShareButton
             data-cy="RedditShareButton"
-            url="facebook.com"
+            url="sixdob.com"
             title="Come play Six Degrees of Kevin Bacon with me!"
           >
             <Button variant="contained">
