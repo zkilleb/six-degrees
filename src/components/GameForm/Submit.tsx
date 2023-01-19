@@ -14,6 +14,7 @@ import { Close, Share, Group } from '@mui/icons-material';
 import { getMovieById } from '../../api';
 import { AutoComplete, TMDBActor, Stat } from '../../classes';
 import { parseStats, formatTimer } from '../../util';
+import { colors } from '../../constants';
 
 export function Submit({
   guesses,
@@ -67,7 +68,7 @@ export function Submit({
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
-            backgroundColor: '#1b2127',
+            backgroundColor: colors.paperBackground,
             color: 'white',
             border: 'solid white',
             borderRadius: 10,

@@ -3,6 +3,7 @@ import { Tooltip } from '@mui/material';
 import { RemoveCircle, Help } from '@mui/icons-material';
 import { getMovieById } from '../../api';
 import { MovieHints } from '../MovieHints';
+import { colors } from '../../constants';
 
 export function GuessCard({
   name,
@@ -108,7 +109,7 @@ const imageStyle = {
 };
 
 const iconStyle = {
-  color: '#ff4d4d',
+  color: colors.delete,
   backgroundColor: 'white',
   borderRadius: 10,
   position: 'absolute',
@@ -117,7 +118,7 @@ const iconStyle = {
 };
 
 const helpStyle = {
-  backgroundColor: '#1976d2',
+  backgroundColor: colors.hint,
   borderRadius: 10,
   color: 'white',
   position: 'absolute',
@@ -126,7 +127,7 @@ const helpStyle = {
 };
 
 const disabledIconStyle = {
-  color: '#C5C5C5',
+  color: colors.disabledHint,
   position: 'absolute',
   top: 0,
   right: 0,

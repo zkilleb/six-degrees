@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { colors } from '../constants';
 
 export function HowToPlay({
   modalOpen,
@@ -20,7 +21,7 @@ export function HowToPlay({
         style: {
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#1b2127',
+          backgroundColor: colors.paperBackground,
           color: 'white',
           border: 'solid white',
           borderRadius: 10,

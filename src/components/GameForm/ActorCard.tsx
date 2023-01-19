@@ -3,6 +3,7 @@ import { Help } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
 import { getActorById, getActorImages } from '../../api';
 import { Hints } from '../Hints';
+import { colors } from '../../constants';
 
 export function ActorCard({
   to,
@@ -97,7 +98,7 @@ const subHeaderStyle = {
 const hintButtonStyle = {
   fontSize: 20,
   color: 'white',
-  backgroundColor: '#1976d2',
+  backgroundColor: colors.hint,
   borderRadius: 10,
   position: 'absolute',
   top: 5,

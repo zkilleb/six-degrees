@@ -11,6 +11,7 @@ import {
   FacebookShareButton,
   RedditShareButton,
 } from 'react-share';
+import { colors } from '../constants';
 
 export function Share({
   shareModalOpen,
@@ -26,7 +27,7 @@ export function Share({
         style: {
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#1b2127',
+          backgroundColor: colors.paperBackground,
           color: 'white',
           border: 'solid white',
           borderRadius: 10,

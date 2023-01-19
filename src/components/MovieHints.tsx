@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { colors } from '../constants';
 
 export function MovieHints({
   modalOpen,
@@ -25,7 +26,7 @@ export function MovieHints({
           display: 'flex',
           alignItems: 'center',
           textAlign: 'center',
-          backgroundColor: '#1b2127',
+          backgroundColor: colors.paperBackground,
           color: 'white',
           border: 'solid white',
           borderRadius: 10,

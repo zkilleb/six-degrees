@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { colors } from '../constants';
 import { BaconToggle } from './BaconToggle';
 import { EraToggle } from './EraToggle';
 import { HintToggle } from './HintToggle';
@@ -23,7 +24,7 @@ export function Settings({
         style: {
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#1b2127',
+          backgroundColor: colors.paperBackground,
           color: 'white',
           border: 'solid white',
           borderRadius: 10,

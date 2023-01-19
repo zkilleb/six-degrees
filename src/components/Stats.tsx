@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { Stat } from '../classes';
 import { parseStats, formatTimer } from '../util';
+import { colors } from '../constants';
 
 export function Stats({
   statModalOpen,
@@ -26,7 +27,7 @@ export function Stats({
         style: {
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#1b2127',
+          backgroundColor: colors.paperBackground,
           color: 'white',
           border: 'solid white',
           borderRadius: 10,
