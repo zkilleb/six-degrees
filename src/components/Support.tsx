@@ -6,7 +6,7 @@ import {
   DialogActions,
 } from '@mui/material';
 import { Coffee } from '@mui/icons-material';
-import { colors } from '../constants';
+import { paperProps } from '../constants';
 
 export function Support({
   supportModalOpen,
@@ -16,19 +16,7 @@ export function Support({
   handleSupportClick: () => void;
 }) {
   return (
-    <Dialog
-      open={supportModalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: colors.paperBackground,
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={supportModalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="SupportHeader">Support</DialogTitle>
       <DialogContent data-cy="SupportContent">
         <span>

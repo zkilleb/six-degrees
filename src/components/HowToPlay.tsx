@@ -5,7 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
-import { colors } from '../constants';
+import { paperProps } from '../constants';
 
 export function HowToPlay({
   modalOpen,
@@ -15,19 +15,7 @@ export function HowToPlay({
   handleClick: () => void;
 }) {
   return (
-    <Dialog
-      open={modalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: colors.paperBackground,
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={modalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="HowToPlayHeader">How to Play</DialogTitle>
       <DialogContent data-cy="HowToPlayContent">
         <span>

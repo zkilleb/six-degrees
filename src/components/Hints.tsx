@@ -5,7 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
-import { colors } from '../constants';
+import { paperProps } from '../constants';
 
 export function Hints({
   modalOpen,
@@ -19,20 +19,7 @@ export function Hints({
   handleClick: () => void;
 }) {
   return (
-    <Dialog
-      open={modalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          textAlign: 'center',
-          backgroundColor: colors.paperBackground,
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={modalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="HintsHeader">
         Popular Credits for {actorName}
       </DialogTitle>
