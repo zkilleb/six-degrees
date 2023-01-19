@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Six Degrees of Kevin Bacon",
+  "name": "Six Degrees of Kevin Bacon",
+  "description": "Join the fun and play Six Degrees of Kevin Bacon now! Connect two actors together in six steps or less and test your movie knowledge.",
+  "categories": ["games", "entertainment", "movies"],
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +10,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -21,5 +23,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#1b2127"
 }
