@@ -8,6 +8,7 @@ import {
 } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
 import { HowToPlay, Settings, Share, Support, Stats } from '../components';
+import { colors } from '../constants';
 
 export function Header() {
   const [playedBefore] = React.useState(localStorage.getItem('playedBefore'));
@@ -110,7 +111,7 @@ export function Header() {
 const headerStyle = {
   width: '100%',
   height: '3em',
-  backgroundColor: '#14181c',
+  backgroundColor: colors.tableHeaderRowBackground,
   display: 'flex',
   alignItems: 'center',
 };

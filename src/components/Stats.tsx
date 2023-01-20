@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { Stat } from '../classes';
 import { parseStats, formatTimer } from '../util';
+import { paperProps } from '../constants';
 
 export function Stats({
   statModalOpen,
@@ -20,19 +21,7 @@ export function Stats({
   const [parsedStats] = React.useState<Stat | undefined>(parseStats(stats));
 
   return (
-    <Dialog
-      open={statModalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: '#1b2127',
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={statModalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="StatModalHeader">Statistics</DialogTitle>
       <DialogContent data-cy="StatModalBody" sx={contentStyle}>
         {parsedStats ? (

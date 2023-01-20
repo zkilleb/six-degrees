@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
 } from '@mui/material';
+import { paperProps } from '../constants';
 import { BaconToggle } from './BaconToggle';
 import { EraToggle } from './EraToggle';
 import { HintToggle } from './HintToggle';
@@ -17,19 +18,7 @@ export function Settings({
   handleSettingsClick: () => void;
 }) {
   return (
-    <Dialog
-      open={settingsModalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: '#1b2127',
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={settingsModalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="SettingsModalHeader">Settings</DialogTitle>
       <DialogContent>
         <EraToggle />

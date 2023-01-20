@@ -54,7 +54,7 @@ const StyledToggleButton = styled(ToggleButton)({
     color: 'white',
     backgroundColor: colors.tableBackground,
   },
-  backgroundColor: '#1b2127',
+  backgroundColor: colors.paperBackground,
   border: 'solid black',
   borderRadius: 10,
   color: 'white',

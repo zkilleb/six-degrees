@@ -14,6 +14,7 @@ import { Close, Share, Group } from '@mui/icons-material';
 import { getMovieById } from '../../api';
 import { AutoComplete, TMDBActor, Stat } from '../../classes';
 import { parseStats, formatTimer } from '../../util';
+import { paperProps } from '../../constants';
 
 export function Submit({
   guesses,
@@ -60,20 +61,7 @@ export function Submit({
         </Alert>
       </Snackbar>
 
-      <Dialog
-        open={modalOpen}
-        PaperProps={{
-          style: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            backgroundColor: '#1b2127',
-            color: 'white',
-            border: 'solid white',
-            borderRadius: 10,
-          },
-        }}
-      >
+      <Dialog open={modalOpen} PaperProps={paperProps}>
         <DialogTitle>
           {submittedResult ? 'Correct' : 'Incorrect'}
           <IconButton

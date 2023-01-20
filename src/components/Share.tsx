@@ -11,6 +11,7 @@ import {
   FacebookShareButton,
   RedditShareButton,
 } from 'react-share';
+import { paperProps } from '../constants';
 
 export function Share({
   shareModalOpen,
@@ -20,19 +21,7 @@ export function Share({
   handleShareClick: () => void;
 }) {
   return (
-    <Dialog
-      open={shareModalOpen}
-      PaperProps={{
-        style: {
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: '#1b2127',
-          color: 'white',
-          border: 'solid white',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <Dialog open={shareModalOpen} PaperProps={paperProps}>
       <DialogTitle data-cy="ShareModalHeader">Share</DialogTitle>
       <DialogContent sx={wrapperStyle}>
         <div style={contentStyle}>
