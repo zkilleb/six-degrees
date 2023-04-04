@@ -3,3 +3,5 @@ public
 .gitignore
 .prettierignore
 .prettierrc
+ads.txt
+.husky/
